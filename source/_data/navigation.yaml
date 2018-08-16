@@ -1,0 +1,14 @@
+logo:
+  text: Deepin开发指南
+  type: link
+  path: index.html
+main:
+- type: label
+- text: 新手上路
+  type: link
+  path: index.html
+- text: API 手册
+  type: label
+- text: 在Github上编辑此文档
+  type: link
+  path: ''
