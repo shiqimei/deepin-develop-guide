@@ -61,6 +61,7 @@
         <script src='http://file.lolimay.cn/valine-min.js'></script>
         <script>
             new Valine({
+                av: AV,
                 el: '#vcomments',
                 placeholder: '欢迎留下您的评论与见解（支持Markdown语法）',
                 appId: 'IPBpubcWq8eH9zMVTawxUhOI-gzGzoHsz',
@@ -68,7 +69,8 @@
                 pageSize: 100,
                 avatar:'',
                 visitor: true,
-                notify: true
+                notify: false,
+                verify: false
             })
         </script>
       </div>
