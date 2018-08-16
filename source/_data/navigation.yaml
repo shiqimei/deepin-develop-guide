@@ -5,10 +5,12 @@ logo:
 main:
 - type: label
 - text: 新手上路
+  type: label
+- text: 起步
   type: link
   path: index.html
 - text: API 手册
   type: label
 - text: 在Github上编辑此文档
   type: link
-  path: ''
+  path: https://github.com/loliMay/deepin-develop-guide
