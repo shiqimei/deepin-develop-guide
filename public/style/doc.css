@@ -10,4 +10,4 @@ div#vcomments {margin-top:100px;} .v .vwrap {border:1px solid #ccc!important;}
 .v .vlist .vcard .vhead .vnick {color:#666!important;font-size: 16px!important;}
 .v .vlist .vcard .vh .vmeta .vat {font-size:14px!important;color:rgba(168, 168, 168, 1.0)!important;}
 .v .vlist .vcard .vh .vmeta .vat:hover {color:rgba(9, 118, 181, 1.0)!important;}
-.vcontent p {font-size:14px;} b, strong {font-weight: 600!important;}
+.vcontent p {font-size:14px;} b, strong {font-weight: 900!important;}
