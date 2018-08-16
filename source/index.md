@@ -19,7 +19,7 @@ sudo apt install libdtkbase-dev libdtkwidget-dev libdframeworkdbus-dev -y #安�
 sudo apt install libdtkcore-dev libdtksettings-dev libdtksettingsview-dev libdtkutil-dev libdtkwidget-dev libdtkwm-dev -y
 ```
 
-
+测试代码
 
 ```bash
 $ git clone https://github.com/zalando-incubator/hexo-theme-doc-seed.git <directory>
