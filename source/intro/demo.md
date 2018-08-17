@@ -40,8 +40,8 @@ CLion 会自动在每个项目的根目录下创建 **cmake-build-debug** 文件
 
 ![](http://images.lolimay.cn/18-8-18/34186974.jpg)
 
-**原因**： 缺少 DTK 组件 (点击这里[了解 DTK](/intro/dtk.html))，应该是在 [起步 - 步骤 1.2.1](http://deepin.lolimay.cn/index.html/#1-2-%E9%83%A8%E7%BD%B2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83) 中没有正确地安装完整的 dtk 工具包
-**解决方法**： 打开终端，输入以下命令
+**原因**： 缺少 DTK 组件 (点击这里[了解 DTK](/intro/dtk.html))，应该是在 [起步 - 步骤 1.2.1](http://deepin.lolimay.cn/index.html#1-2-%E9%83%A8%E7%BD%B2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83) 中没有正确地安装完整的 dtk 工具包
+**解决方法**： 打开终端，输入以下命令s
 ````bash #安装dtk工具包
 sudo apt install libdtkbase-dev libdtkwidget-dev libdframeworkdbus-dev -y
 sudo apt install libdtkcore-dev libdtksettings-dev libdtksettingsview-dev libdtkutil-dev libdtkwidget-dev libdtkwm-dev -y
