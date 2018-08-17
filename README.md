@@ -1,19 +1,36 @@
 # Deepin开发指南
 
 # 前言
-[Deepin开发指南](http://deepin.lolimay.cn) 是一个在线文档，我们希望能够通过这个文档，降低 [Deepin](http://www.deepin.org) 应用开发的门槛。
+[《Deepin 开发指南》](http://deepin.lolimay.cn)旨在帮助 Deppin 社区的开发者更快地投入进软件的开发过程中，按计划，该系列教程将会包括以下内容: 开发环境的搭建与配置、深度原生应用源码分析、Deepin Tool Kit API手册等。
 
 # 目录
 本文档包括以下内容：
 ## [新手上路](http://deepin.lolimay.cn)
--  [开发环境的搭建与配置]() (编写中)
-    - [Nodejs环境的安装与配置]() (编写中)
-    - [Qt开发环境的安装与配置]() (编写中)
-- [深度原生应用源码分析]() (编写中)
+-  [起步](http://deepin.lolimay.cn)
+    - [前言](http://deepin.lolimay.cn/#%E5%89%8D%E8%A8%80)
+    - [部署开发环境](http://deepin.lolimay.cn/#%E9%83%A8%E7%BD%B2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83)
+- [DTK]() (编写中)
 ## [API手册]()
 - [Deepin Tool Kit API]() (编写中)
 
 # 参与写作&校对
 1. Fork 此仓库
-2. 用你趁手的Markdown编辑器编辑`source`下的`.md`源文件
+2. 用你趁手的Markdown编辑器编辑 **source** 下的`.md`源文件
 3. Pull Request 到这个仓库
+
+仓库下的 **public/** 文件夹是 [《Deepin 开发指南》](http://deepin.lolimay.cn) 的源码，是 [Hexo](http://www.hexo.io) 根据 **source/** 文件夹的内容动态生成的，不要修改此目录下的文件，会被覆盖掉。
+
+## **source/** 文件夹的目录结构
+````
+.
+├── _data
+│   └── navigation.yaml #左侧导航栏配置文件
+├── images
+│   ├── favicon.ico #站点favicon文件
+│   └── logo.png #站点logo文件（废弃）
+├── index.md #站点主页
+└── intro
+    ├── cmake.md
+    └── dtk.md
+````
+可自由在 **source/** 文件夹下创建文件夹和 Markdown 文件，添加一个新的教程页需要在 **navigation.yaml** 文件中指定它在左侧导航栏中的位置
