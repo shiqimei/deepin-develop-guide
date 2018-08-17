@@ -1,46 +1,29 @@
 # 起步
 
-## DTK 简介
-DTK 全称 deepin-tool-kit，是 Deepin 基于Qt5开发的一整套UI图形库，包含一些工具类和大量的常用控件，方便统一地编写深度桌面和深度系列应用<sup><a href="#link1">1</a></sup>，主要的功能有：
-- 提供单实例的接口，方便直接使用，不用造轮子
-- 提供窗口移动、缩放等一系列函数
-- 提供一大票美观的自绘控件
+## 前言
+《Deepin 开发指南》旨在帮助 Deppin 社区的开发者更快地投入进软件的开发过程中，按计划，该系列教程将会包括以下内容: 开发环境的搭建与配置、深度原生应用源码分析、Deepin Tool Kit API手册等。
 
-DTK 已于 2017 年 7 月完成重构<sup><a href="#link2">2</a></sup>，deepin-tool-kit 已被拆分成多个模块，包括 dtkcore、dtkwidget 和 dtkwm 等，其中 dtkwidget是控件库，包括所有系统和应用的控件、dtkcore是一些非控件的工具库函数<sup><a href="#link3">3</a></sup>。
-
-## 安装
-
-打开终端输入以下命令以安装 DTK 开发环境:
-
+## 部署开发环境
+### 1. 安装 Qt、g++、dtk 工具集、cmake
+打开终端输入以下命令
 ```sh
 sudo apt update #更新软件源
-sudo apt install qt5-default qttools5-dev-tools qt5-qmake g++ qtcreator -y #安装Qt开发套件和g++（如果已安装则无需安装）
-sudo apt install libdtkbase-dev libdtkwidget-dev libdframeworkdbus-dev -y #安装dtk工具包
+sudo apt install qtcreator-dde g++ -y #安装Qt和g++
+sudo apt install libdtkbase-dev libdtkwidget-dev libdframeworkdbus-dev -y #安装dtk工具集
 sudo apt install libdtkcore-dev libdtksettings-dev libdtksettingsview-dev libdtkutil-dev libdtkwidget-dev libdtkwm-dev -y
+sudo apt install cmake #安装cmake
 ```
-
-
-
-```bash
-$ git clone https://github.com/zalando-incubator/hexo-theme-doc-seed.git <directory>
-```
-
-Go into the resulting directory and install dependencies:
-
-```bash
-$ npm install
-```
-
-Start the preview server locally with:
-
-```
-hexo s
-```
-
-> If you open your browser at http://localhost:4000 you should see the documentation website up and running.
-
-## 参考链接
-
-1. <a id="link1" href="https://www.jianshu.com/p/e871723f9460">深度桌面操作系统架构设计</a>
-2. <a id="link2" href="https://github.com/linuxdeepin/deepin-tool-kit/issues/8">Deepin Tool Kit 重构 #8</a>
-3. <a id="link3" href="https://bbs.deepin.org/forum.php?mod=viewthread&tid=146363&page=1#pid385967">请问dtk、dtkwidget、dtkcore之间是什么关系？</a>
+### 2. 安装 CLion
+官方源中的 CLion 还是 2017.2 版本的，已经比较旧了，官网目前最新的是 2018.2 版本
+#### 方式一 使用 apt 自动安装 CLion
+打开终端输入以下命令
+````
+sudo apt install clion -y #安装 CLion
+````
+#### 方式二 官网下载压缩包手动安装 CLion
+1. 打开 [CLion官网](https://www.jetbrains.com/clion/)
+2. 点击 **GET FREE 30 DAY TRIAL** 按钮，Chrome 会自动下载 CLion 的压缩包
+3. 在文件夹中打开该文件，解压得到 **clion-2018.2.1** 文件夹
+4. 执行 **clion-2018.2.1/bin** 目录下的 **clion.sh** 脚本，安装程序会自动启动
+5. 此后跟着CLion安装引导程序的提示一路往下即可安装成功
+> 注意：CLion 为商业软件，提供 30 天试用，授权许可是 89 美元每年，以后逐年递减，**学生或开源项目认证通过后可免费使用**，详情请关注官网。<s>如果实在资金不允许，百度上也有对应的解决方案，这里不便叙述。</s>建议有条件的开发者能够购买正版。

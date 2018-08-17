@@ -9,6 +9,9 @@ main:
 - text: 起步
   type: link
   path: index.html
+- text: DTK
+  type: link
+  path: intro/dtk.html
 - text: API 手册
   type: label
 - text: 在Github上编辑此文档
