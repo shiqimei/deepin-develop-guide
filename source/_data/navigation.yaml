@@ -9,6 +9,9 @@ main:
 - text: 起步
   type: link
   path: index.html
+- text: 创建 Deepin 示例应用
+  type: link
+  path: intro/demo.html
 - text: DTK
   type: link
   path: intro/dtk.html
