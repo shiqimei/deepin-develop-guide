@@ -1,7 +1,0 @@
-/home/lolimay/Downloads/clion-2018.2.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /media/lolimay/Code/Deepin/Demo
--- Checking for modules 'dtkwidget;dframeworkdbus'
---   Found dtkwidget, version 2.0.9
---   Found dframeworkdbus, version 2.0
--- Configuring done
--- Generating done
--- Build files have been written to: /media/lolimay/Code/Deepin/Demo/cmake-build-debug
