@@ -9,9 +9,19 @@ main:
 - text: 起步
   type: link
   path: index.html
-- text: 创建 Deepin 示例应用
+- text: 创建Deepin示例应用
   type: link
   path: intro/demo.html
+- text: CMake入门教程
+  type: link
+  path: intro/cmake/cmake.html
+  children:
+  - text: CMake入门
+    type: link
+    path: intro/cmake/cmake-base.html
+  - text: CMake实战
+    type: link
+    path: intro/cmake/cmake-practice.html
 - text: DTK
   type: link
   path: intro/dtk.html

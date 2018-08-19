@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Deepin开发指南</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/images/favicon.ico">
+
+    
+
+  </head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"intro/cmake/cmake-practice.html","title":""},"data":{"navigation":{"logo":{"text":"Deepin开发指南","type":"link","path":"index.html"},"main":[{"type":"label"},{"text":"新手上路","type":"label"},{"text":"起步","type":"link","path":"index.html"},{"text":"创建Deepin示例应用","type":"link","path":"intro/demo.html"},{"text":"CMake入门教程","type":"link","path":"intro/cmake/cmake.html","children":[{"text":"CMake入门","type":"link","path":"intro/cmake/cmake-base.html"},{"text":"CMake实战","type":"link","path":"intro/cmake/cmake-practice.html"}]},{"text":"DTK","type":"link","path":"intro/dtk.html"},{"text":"API 手册","type":"label"},{"text":"在Github上编辑此文档","type":"link","path":"https://github.com/loliMay/deepin-develop-guide"}]}},"config":{"timezone":"UTC","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"images/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Deepin开发指南</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h1 id="CMake-实战"><a href="#CMake-实战" class="headerlink" title="CMake 实战"></a>CMake 实战</h1><h2 id="1-1-构建单个源文件"><a href="#1-1-构建单个源文件" class="headerlink" title="1.1 构建单个源文件"></a>1.1 构建单个源文件</h2><p>尽管上文说到 CMake 适用于比较大的项目，但如果连简单项目的 CMakeLists.txt 都不会写更何况比较大的项目。下面我们从最简单的情况入门，尝试构建单个源文件。建议自己亲自动手实践下面所有的案例，这样印象会更加深刻。VS Code 是一款优秀的跨平台代码编辑器，下面的练习推荐使用 <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a> 进行实践。</p>
+<ol>
+<li>新建项目文件夹 demo1</li>
+<li><p>新建 hello.cpp</p>
+<figure class="highlight cpp"><figcaption><span>demo1/hello.cpp</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello, World"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建 CMakeList.txt</p>
+<figure class="highlight cpp"><figcaption><span>demo1/CMakeList.txt</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION <span class="number">3.8</span>) #要求CMake的最低版本为<span class="number">3.8</span></span><br><span class="line">project(demo1) #指定项目名称为demo</span><br><span class="line">add_executable(demo demo1.cpp) #指定生成的可执行文件名和所需源文件 格式: add_executable(生成的可执行文件名 源文件<span class="number">1</span> 源文件<span class="number">2</span> ...)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>整个项目内容如下</p>
+<p><img src="http://images.lolimay.cn/18-8-19/66993297.jpg" alt=""></p>
+<ol start="4">
+<li>打开终端 <code>cd</code> 到项目根目录<figure class="highlight shell"><figcaption><span>lolimay@deepin: example/cmake/demo1</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir build &amp;&amp; cd build #单独创建一个 build 文件夹并 cd 进去</span><br><span class="line">cmake .. #用 cmake 构建项目</span><br><span class="line">make -j4 #开 4 个线程去编译项目</span><br><span class="line">./demo #执行可执行文件</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>运行结果：<br><img src="http://images.lolimay.cn/18-8-19/39115902.jpg" alt=""></p>
+<p>有人可能会有疑问，为什么要单独创建一个 build 文件夹，直接就在项目文件夹下 <code>cmake . &amp;&amp; make -j4</code> 不是就可以吗？是不是多次一举，看看 build 文件夹的内容便知。<br><img src="http://images.lolimay.cn/18-8-19/44200067.jpg" alt=""></p>
+<p>将项目源文件与生成的目标文件同放在项目根目录下，会很容易产生混乱，十分不利于项目的管理。因此需要单独建立一个 build 文件夹专门放置构建生成的目标文件，防止项目的源文件被污染，以降低项目维护的成本。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
+<li><a href="https://www.zhihu.com/question/27455963" target="_blank" rel="noopener">CMake入门实战 - HaHack</a></li>
+</ol>
+
+        <div id="react-support-footer-root"></div>
+        <div id="vcomments"></div>
+        <script src="http://file.lolimay.cn/av.js"></script>
+        <script src='http://file.lolimay.cn/valine2.js'></script>
+        <script>
+            new Valine({
+                av: AV,
+                el: '#vcomments',
+                placeholder: '欢迎留下您的评论，支持部分Markdown语法，如 *斜体*、**加粗**、`行内代码`、[超链接](链接地址)、![图片](图片地址) 等',
+                appId: 'IPBpubcWq8eH9zMVTawxUhOI-gzGzoHsz',
+                appKey: '94JwYNiBKLao9XN20MLKGzlv',
+                smiles_url: 'http://file.lolimay.cn',
+                pageSize: 100,
+                avatar:'',
+                visitor: true,
+                notify: false,
+                verify: false
+            })
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="http://file.lolimay.cn/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="http://file.lolimay.cn/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+      
+    
+    <div id="footer">Powered by <a href="https://hexo.io">Hexo</a> Theme <a href="https://github.com/zalando-incubator/hexo-theme-doc">hexo-theme-doc</a></div>
+  </body>
+</html>

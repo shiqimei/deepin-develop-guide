@@ -46,3 +46,5 @@ CLion 会自动在每个项目的根目录下创建 **cmake-build-debug** 文件
 sudo apt install libdtkbase-dev libdtkwidget-dev libdframeworkdbus-dev -y
 sudo apt install libdtkcore-dev libdtksettings-dev libdtksettingsview-dev libdtkutil-dev libdtkwidget-dev libdtkwm-dev -y
 ````
+
+<p class="button-outer"><a href="cmake/cmake.html"><span class="button">CMake入门教程 ➤</span></a></p>
