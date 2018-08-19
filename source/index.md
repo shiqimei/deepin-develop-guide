@@ -61,7 +61,7 @@ ProjectName               #项目目录
 ````
 ### 模板内容
 ````cmake ProjectName/CMakeList.txt
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.1.0)
 project(Demo)
 add_subdirectory(src)
 ````
