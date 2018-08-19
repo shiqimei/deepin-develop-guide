@@ -27,9 +27,9 @@
     - [CMake实战](http://deepin.lolimay.cn/intro/cmake/cmake-practice.html)（编写中）
     - [3.5 构建单个源文件](http://deepin.lolimay.cn/intro/cmake/cmake-practice.html#3-5-%E6%9E%84%E5%BB%BA%E5%8D%95%E4%B8%AA%E6%BA%90%E6%96%87%E4%BB%B6)
     - [参考链接](http://deepin.lolimay.cn/intro/cmake/cmake-practice.html#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5)
-- [Deepin Tool Kit]()（编写中）
+- [Deepin Tool Kit]()（计划）
 ## [API手册]()
-- [Deepin Tool Kit API]()（编写中）
+- [Deepin Tool Kit API]()（计划）
 
 # 参与写作&校对
 1. Fork 此仓库
