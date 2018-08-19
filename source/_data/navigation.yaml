@@ -22,7 +22,7 @@ main:
   - text: CMake实战
     type: link
     path: intro/cmake/cmake-practice.html
-- text: DTK
+- text: Deepin Tool Kit
   type: link
   path: intro/dtk.html
 - text: API 手册

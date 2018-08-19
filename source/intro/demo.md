@@ -1,6 +1,6 @@
 # 创建Deepin示例应用
 
-## 1.1 创建一个空项目
+## 2.1 创建一个空项目
 打开 CLion，新建一个项目
 
 ![](http://images.lolimay.cn/18-8-18/65089447.jpg)
@@ -15,12 +15,12 @@
 
 CLion 会自动在每个项目的根目录下创建 **cmake-build-debug** 文件夹，这个文件夹的内容是自动生成的，我们无需关心。
 
-## 1.2 对原有项目进行改造
+## 2.2 对原有项目进行改造
 下面我们按照 <a href="/index.html#1-4-%E7%94%A8-CMake-%E6%9E%84%E5%BB%BA-Qt-%E9%A1%B9%E7%9B%AE" target="_blank">起步 - 1.4 用 CMake 构建 Qt</a> 中提供的项目模板对原来的项目进行改造，改造后的结果如下
 
 ![](http://images.lolimay.cn/18-8-18/90831166.jpg)
 
-## 1.3 重载并运行项目
+## 2.3 重载并运行项目
 现在我们右击项目，点击 **Reload CMake Project** 重载项目
 
 ![](http://images.lolimay.cn/18-8-18/4415726.jpg)
@@ -35,7 +35,7 @@ CLion 会自动在每个项目的根目录下创建 **cmake-build-debug** 文件
 
 运行结果如上图所示，恭喜你已跨入 Deepin 应用开发的大门！
 
-## 其它意外情况
+## 2.4 其它意外情况
 1. 重载项目时 CLion 的 Debug 输出报错
 
 ![](http://images.lolimay.cn/18-8-18/34186974.jpg)

@@ -1,6 +1,6 @@
 # CMake 实战
-## 1.1 构建单个源文件
-尽管上文说到 CMake 适用于比较大的项目，但如果连简单项目的 CMakeLists.txt 都不会写更何况比较大的项目。下面我们从最简单的情况入门，尝试构建单个源文件。建议自己亲自动手实践下面所有的案例，这样印象会更加深刻。VS Code 是一款优秀的跨平台代码编辑器，下面的练习推荐使用 [VS Code](https://code.visualstudio.com/) 进行实践。
+## 3.5 构建单个源文件
+上文说到 CMake 适用于比较大的项目，但如果连简单项目的 CMakeLists.txt 都不会写更何况比较大的项目。下面我们从最简单的情况入门，尝试构建单个源文件。建议自己亲自动手实践下面所有的案例，这样印象会更加深刻。VS Code 是一款优秀的跨平台代码编辑器，下面的练习推荐使用 [VS Code](https://code.visualstudio.com/) 进行实践。
 1. 新建项目文件夹 demo1
 2. 新建 hello.cpp
 ````cpp demo1/hello.cpp
