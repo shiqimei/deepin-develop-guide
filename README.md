@@ -48,7 +48,11 @@
 │   └── logo.png #站点logo文件（废弃）
 ├── index.md #站点主页
 └── intro
-    ├── cmake.md
+    ├── cmake #cmake文件夹
+    ├── ...
     └── dtk.md
 ````
 可自由在 **source/** 文件夹下创建文件夹和 Markdown 文件，添加一个新的教程页需要在 **navigation.yaml** 文件中指定它在左侧导航栏中的位置
+
+# 更新日志
+> 2018年8月20日 写完 [CMake入门教程 - CMake入门章节](http://deepin.lolimay.cn/intro/cmake/cmake-base.html)

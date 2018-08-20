@@ -19,7 +19,7 @@ sudo apt install cmake -y #安装cmake
 细心的同学可能会发现，在教程的 [起步 - 1.2.1 安装 Qt、g++、dtk 工具包、cmake](http://deepin.lolimay.cn/#1-2-%E9%83%A8%E7%BD%B2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83) 一节中其实已经引导大家安装了 cmake，cmake 是使用 C++ 开发项目的首选构建工具。
 ## 3.4 CMake语法
 CMake 的语法比较简单，由命令、注释（注释符是 #）和空格组成，CMake对大小写不敏感（建议命令全部小写以增加可读性），命令由命令名称、小括号和参数组成，参数之间使用空格进行分隔。CMake 的配置文件 CMakeLists.txt 一般在项目根目录下，下面是最简单的 CMakeLists.txt 示例：
-````cmake
+````cmake CMakeLists.txt
 cmake_minimum_required(VERSION 3.8) #要求CMake的最低版本为3.8
 project(demo) #指定项目名称为demo
 add_executable(demo main.c) #指定生成的可执行文件名和所需源文件 格式: add_executable(生成的可执行文件名 源文件1 源文件2 源文件3 ...)
