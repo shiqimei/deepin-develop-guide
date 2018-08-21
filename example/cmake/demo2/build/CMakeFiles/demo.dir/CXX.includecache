@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/media/lolimay/Code/Doc/deepin-develop-guide/example/cmake/demo2/hello.cpp
+stdio.h
+-
+
+/media/lolimay/Code/Doc/deepin-develop-guide/example/cmake/demo2/hello.h
+
+/media/lolimay/Code/Doc/deepin-develop-guide/example/cmake/demo2/main.cpp
+hello.h
+/media/lolimay/Code/Doc/deepin-develop-guide/example/cmake/demo2/hello.h
+

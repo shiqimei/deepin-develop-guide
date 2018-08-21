@@ -8,7 +8,7 @@ main:
   type: label
 - text: 起步
   type: link
-  path: index.html
+  path: intro/start.html
 - text: 创建Deepin示例应用
   type: link
   path: intro/demo.html

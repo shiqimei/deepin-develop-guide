@@ -3,6 +3,8 @@
 # 前言
 [《Deepin 开发指南》](http://deepin.lolimay.cn)旨在帮助 Deppin 社区的开发者更快地投入进软件的开发过程中，按计划，该系列教程将会包括以下内容: 开发环境的搭建与配置、深度原生应用源码分析、Deb 与 Flatpak 打包教程以及Deepin Tool Kit API手册等。
 
+本教程假设你已经有了一定的 C++ 基础，如果对 C++ 一无所知的话，建议先从学习 C++ 开始，[《C++ Primer Plus 第6版 中文版》](https://www.baidu.com/s?wd=c%2B%2B%20prime%20plus)是你最好的选择。
+
 # 目录
 
 ## [新手上路](http://deepin.lolimay.cn)

@@ -1,0 +1,3 @@
+/media/lolimay/Code/Doc/deepin-develop-guide/example/cmake/demo2/build/CMakeFiles/rebuild_cache.dir
+/media/lolimay/Code/Doc/deepin-develop-guide/example/cmake/demo2/build/CMakeFiles/demo.dir
+/media/lolimay/Code/Doc/deepin-develop-guide/example/cmake/demo2/build/CMakeFiles/edit_cache.dir

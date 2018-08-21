@@ -23,7 +23,7 @@ CLion 会自动在每个项目的根目录下创建 **cmake-build-debug** 文件
 ## 2.3 重载并运行项目
 现在我们右击项目，点击 **Reload CMake Project** 重载项目
 
-![](http://images.lolimay.cn/18-8-18/4415726.jpg)
+![](http://images.lolimay.cn/18-8-21/25274282.jpg)
 
 若 CLion 的 Debug输出如下显示，则说明项目配置没有问题
 
@@ -35,15 +35,17 @@ CLion 会自动在每个项目的根目录下创建 **cmake-build-debug** 文件
 
 运行结果如上图所示，恭喜你已跨入 Deepin 应用开发的大门！
 
+#### [点击查看本示例源码](https://github.com/loliMay/deepin-develop-guide/tree/master/example/Demo)
+
 ## 2.4 其它意外情况
 1. 重载项目时 CLion 的 Debug 输出报错
 
 ![](http://images.lolimay.cn/18-8-18/34186974.jpg)
 
 **原因**： 缺少 DTK 组件 (点击这里[了解 DTK](/intro/dtk.html))，应该是在 [起步 - 步骤 1.2.1](http://deepin.lolimay.cn/index.html#1-2-%E9%83%A8%E7%BD%B2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83) 中没有正确地安装完整的 dtk 工具包
-**解决方法**： 打开终端，输入以下命令s
-````bash #安装dtk工具包
-sudo apt install libdtkbase-dev libdtkwidget-dev libdframeworkdbus-dev -y
+**解决方法**： 打开终端，输入以下命令
+````bash lolimay@lolimay-PC:
+sudo apt install libdtkbase-dev libdtkwidget-dev libdframeworkdbus-dev -y #安装dtk工具包
 sudo apt install libdtkcore-dev libdtksettings-dev libdtksettingsview-dev libdtkutil-dev libdtkwidget-dev libdtkwm-dev -y
 ````
 

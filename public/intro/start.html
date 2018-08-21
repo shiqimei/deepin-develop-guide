@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Deepin开发指南</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/images/favicon.ico">
+
+    
+
+  </head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"intro/start.html","title":""},"data":{"navigation":{"logo":{"text":"Deepin开发指南","type":"link","path":"index.html"},"main":[{"type":"label"},{"text":"新手上路","type":"label"},{"text":"起步","type":"link","path":"intro/start.html"},{"text":"创建Deepin示例应用","type":"link","path":"intro/demo.html"},{"text":"CMake入门教程","type":"link","path":"intro/cmake/cmake.html","children":[{"text":"CMake入门","type":"link","path":"intro/cmake/cmake-base.html"},{"text":"CMake实战","type":"link","path":"intro/cmake/cmake-practice.html"}]},{"text":"Deepin Tool Kit","type":"link","path":"intro/dtk.html"},{"text":"API 手册","type":"label"},{"text":"在Github上编辑此文档","type":"link","path":"https://github.com/loliMay/deepin-develop-guide"}]}},"config":{"timezone":"UTC","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"images/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Deepin开发指南</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h1 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h1><h2 id="1-1-前言"><a href="#1-1-前言" class="headerlink" title="1.1 前言"></a>1.1 前言</h2><p>《Deepin 开发指南》旨在帮助 Deppin 社区的开发者更快地投入进软件的开发过程中，按计划，该系列教程将会包括以下内容: 开发环境的搭建与配置、深度原生应用源码分析、Deb 与 Flatpak 打包教程以及Deepin Tool Kit API手册等。</p>
+<p>本教程假设你已经有了一定的 C++ 基础，如果对 C++ 一无所知，建议先从学习 C++ 开始，<a href="https://www.amazon.com/C-Primer-Plus-Sixth-Chinese/dp/7115279462/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1534737175&amp;sr=1-1&amp;keywords=C%2B%2B+Primer+Plus+%286th+Edition%29++Chinese" target="_blank" rel="noopener">《C++ Primer Plus 第6版 中文版》</a>（请自行在淘宝、京东上购买）是你最好的选择。</p>
+<h2 id="1-2-部署开发环境"><a href="#1-2-部署开发环境" class="headerlink" title="1.2 部署开发环境"></a>1.2 部署开发环境</h2><h3 id="1-2-1-安装-Qt、g-、dtk-工具包、cmake"><a href="#1-2-1-安装-Qt、g-、dtk-工具包、cmake" class="headerlink" title="1.2.1 安装 Qt、g++、dtk 工具包、cmake"></a>1.2.1 安装 Qt、g++、dtk 工具包、cmake</h3><p>打开终端输入以下命令<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update <span class="comment">#更新软件源</span></span><br><span class="line">sudo apt install qtcreator-dde qttools5-dev g++ -y <span class="comment">#安装Qt和g++</span></span><br><span class="line">sudo apt install libdtkbase-dev libdtkwidget-dev libdframeworkdbus-dev -y <span class="comment">#安装dtk工具包</span></span><br><span class="line">sudo apt install libdtkcore-dev libdtksettings-dev libdtksettingsview-dev libdtkutil-dev libdtkwidget-dev libdtkwm-dev -y</span><br><span class="line">sudo apt install cmake <span class="comment">#安装cmake</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="1-2-2-安装-CLion"><a href="#1-2-2-安装-CLion" class="headerlink" title="1.2.2 安装 CLion"></a>1.2.2 安装 CLion</h3><p>官方源中的 CLion 还是 2017.2 版本的，已经比较旧了，官网目前最新的是 2018.2 版本</p>
+<h4 id="方式一-使用-apt-自动安装-CLion"><a href="#方式一-使用-apt-自动安装-CLion" class="headerlink" title="方式一 使用 apt 自动安装 CLion"></a>方式一 使用 apt 自动安装 CLion</h4><p>打开终端输入以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install clion -y #安装 CLion</span><br></pre></td></tr></table></figure></p>
+<h4 id="方式二-官网下载压缩包手动安装-CLion"><a href="#方式二-官网下载压缩包手动安装-CLion" class="headerlink" title="方式二 官网下载压缩包手动安装 CLion"></a>方式二 官网下载压缩包手动安装 CLion</h4><ol>
+<li>打开 <a href="https://www.jetbrains.com/clion/" target="_blank" rel="noopener">CLion官网</a></li>
+<li>点击 <strong>GET FREE 30 DAY TRIAL</strong> 按钮，Chrome 会自动下载 CLion 的压缩包</li>
+<li>在文件夹中打开该文件，解压得到 <strong>clion-2018.2.1</strong> 文件夹</li>
+<li>执行 <strong>clion-2018.2.1/bin</strong> 目录下的 <strong>clion.sh</strong> 脚本，安装程序会自动启动</li>
+<li>此后跟着CLion安装引导程序的提示一路往下即可安装成功<blockquote>
+<p>注意：CLion 为商业软件，提供 30 天试用，授权许可是 89 美元每年，以后逐年递减，<strong>学生或开源项目认证通过后可免费使用</strong>，详情请关注官网。<s>如果实在资金不允许，百度上也有对应的解决方案，这里不便叙述。</s>建议有条件的开发者能够购买正版。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="1-3-配置CLion"><a href="#1-3-配置CLion" class="headerlink" title="1.3 配置CLion"></a>1.3 配置CLion</h2><p>CLion 是一款优秀的C/C++ IDE，很遗憾的是，它并不支持直接编辑 <strong>.ui</strong> 文件（Qt界面文件），这里我们需要添加 Qt Designer 作为 CLion 的 External Tools，以便于直接在 CLion 中直接调用 Qt Creator 来设计界面。</p>
+<p>在CLion中，打开菜单 <strong>File-&gt;Settings-&gt;Tools-&gt;External Tools</strong> , 点击 <strong>+</strong> 新建工具，填入如下内容:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Name: Qt Designer</span><br><span class="line">Tool settings:</span><br><span class="line">     Program: /usr/bin/qtcreator</span><br><span class="line">     Parameters: <span class="variable">$FilePath</span>$</span><br><span class="line">     Working directory: <span class="variable">$ProjectFileDir</span>$</span><br></pre></td></tr></table></figure></p>
+<p>这里需要注意的是，由于每个人的 qtcreator 的路径不一定一样，终端输入 <code>which qtcreator</code> 回车查看 qtcreator 的路径，将其填入 Program 后面的文本框中。</p>
+<p><img src="http://images.lolimay.cn/18-8-17/41277023.jpg"></p>
+<p>OK-&gt;Apply 保存后打开菜单，<strong>File-&gt;Settings-&gt;Appearance &amp; Behavior-&gt;Project View Popup Menu</strong>，将 External Tools 拖到最上面（方便以后编辑 <strong>.ui</strong> 文件，如下图所示：</p>
+<p><img src="http://images.lolimay.cn/18-8-17/38622151.jpg" alt=""></p>
+<h2 id="1-4-用-CMake-构建-Qt-项目"><a href="#1-4-用-CMake-构建-Qt-项目" class="headerlink" title="1.4 用 CMake 构建 Qt 项目"></a>1.4 用 CMake 构建 Qt 项目</h2><p>在学习本节内容前，如果你不清楚什么是 CMake，请先看我们为你提供的 <a href="intro/cmake/cmake.html">CMake入门教程</a>。</p>
+<p>CLion 使用 CMake 作为构建工具，使用 CLion 创建 Qt 项目一个较好的项目模板<sup><a href="#link1">1</a></sup>如下，建议新手创建 Qt 项目均按此模板创建。</p>
+<h3 id="项目目录结构"><a href="#项目目录结构" class="headerlink" title="项目目录结构"></a>项目目录结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ProjectName               <span class="comment">#项目目录</span></span><br><span class="line">├── CMakeLists.txt      <span class="comment">#项目根目录CMakeLists.txt配置文件</span></span><br><span class="line">└── src                 <span class="comment">#源码目录</span></span><br><span class="line">    ├── CMakeLists.txt  <span class="comment">#源码目录CMakeLists.txt配置文件</span></span><br><span class="line">    └── main.cpp        <span class="comment">#程序入口</span></span><br></pre></td></tr></table></figure>
+<h3 id="模板内容"><a href="#模板内容" class="headerlink" title="模板内容"></a>模板内容</h3><figure class="highlight cmake"><figcaption><span>ProjectName/CMakeList.txt</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.7</span>)</span><br><span class="line"><span class="keyword">project</span>(Demo)</span><br><span class="line"><span class="keyword">add_subdirectory</span>(src)</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmake"><figcaption><span>ProjectName/src/CMakeLists.txt</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.7</span>)</span><br><span class="line"><span class="keyword">set</span>(TARGET_NAME Demo)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">17</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_INCLUDE_CURRENT_DIR <span class="keyword">ON</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_AUTOMOC <span class="keyword">ON</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_AUTORCC <span class="keyword">ON</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_AUTOUIC <span class="keyword">ON</span>)</span><br><span class="line">file(GLOB_RECURSE SOURCES <span class="string">"*.cpp"</span>)</span><br><span class="line">file(GLOB_RECURSE HEADERS <span class="string">"*.h"</span>)</span><br><span class="line">file(GLOB_RECURSE FORMS <span class="string">"*.ui"</span>)</span><br><span class="line">file(GLOB_RECURSE RESOURCES <span class="string">"*.qrc"</span>)</span><br><span class="line"><span class="keyword">find_package</span>(PkgConfig REQUIRED)</span><br><span class="line"><span class="keyword">set</span>(QT Core Gui Widgets Network DBus Sql)</span><br><span class="line"><span class="keyword">find_package</span>(Qt5 REQUIRED <span class="variable">$&#123;QT&#125;</span>)</span><br><span class="line">pkg_check_modules(<span class="number">3</span>rd_lib REQUIRED</span><br><span class="line">        dtkwidget dframeworkdbus</span><br><span class="line">        )</span><br><span class="line"><span class="keyword">add_executable</span>(<span class="variable">$&#123;TARGET_NAME&#125;</span> <span class="variable">$&#123;SOURCES&#125;</span> <span class="variable">$&#123;HEADERS&#125;</span> <span class="variable">$&#123;FORMS&#125;</span> <span class="variable">$&#123;RESOURCES&#125;</span>)</span><br><span class="line">target_include_directories(<span class="variable">$&#123;TARGET_NAME&#125;</span> PUBLIC <span class="variable">$&#123;3rd_lib_INCLUDE_DIRS&#125;</span> )</span><br><span class="line"><span class="keyword">target_link_libraries</span>(<span class="variable">$&#123;TARGET_NAME&#125;</span> <span class="variable">$&#123;3rd_lib_LIBRARIES&#125;</span> )</span><br><span class="line"><span class="keyword">qt5_use_modules</span>(<span class="variable">$&#123;TARGET_NAME&#125;</span> <span class="variable">$&#123;QT&#125;</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_INSTALL_PREFIX /usr)</span><br><span class="line"><span class="keyword">install</span>(TARGETS <span class="variable">$&#123;TARGET_NAME&#125;</span> DESTINATION bin)</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><figcaption><span>ProjectName/src/main.cpp</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Deepin Tool Kit 模板代码</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;DApplication&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;DUtil&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;DMainWindow&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;DWidgetUtil&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;DLog&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;zconf.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">DWIDGET_USE_NAMESPACE</span><br><span class="line">        DCORE_USE_NAMESPACE</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">    DLogManager::registerConsoleAppender();</span><br><span class="line">    DLogManager::registerFileAppender();</span><br><span class="line">    DApplication::loadDXcbPlugin();</span><br><span class="line">    <span class="function">DApplication <span class="title">app</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line">    app.setAttribute(Qt::AA_UseHighDpiPixmaps);</span><br><span class="line">    const QString socket_path(QString("Demo_%1").arg(getuid()));</span><br><span class="line">    <span class="keyword">if</span> (app.setSingleInstance(socket_path)) &#123;</span><br><span class="line">        app.setTheme(<span class="string">"light"</span>);</span><br><span class="line">        app.loadTranslator();</span><br><span class="line">        <span class="keyword">const</span> QString descriptionText = QApplication::tr(<span class="string">"A simple Qt Demo by CLion 2018.2 and CMake"</span>);</span><br><span class="line">        <span class="keyword">const</span> QString acknowledgementLink = <span class="string">"https://deepin.lolimay.cn"</span>;</span><br><span class="line">        app.setOrganizationName(<span class="string">"lolimay"</span>);</span><br><span class="line">        app.setApplicationName(<span class="string">"Demo"</span>);</span><br><span class="line">        app.setApplicationDisplayName(QObject::tr(<span class="string">"Demo"</span>));</span><br><span class="line">        app.setApplicationVersion(<span class="string">"1.0.0"</span>);</span><br><span class="line">        app.setProductName(QApplication::tr(<span class="string">"Demo"</span>));</span><br><span class="line">        app.setApplicationDescription(descriptionText);</span><br><span class="line">        app.setApplicationAcknowledgementPage(acknowledgementLink);</span><br><span class="line"></span><br><span class="line">        DMainWindow window;</span><br><span class="line">        window.setFixedWidth(<span class="number">600</span>);</span><br><span class="line">        Dtk::Widget::moveToCenter(&amp;window);</span><br><span class="line">        window.show();</span><br><span class="line">        <span class="keyword">return</span> app.exec();</span><br><span class="line">    &#125;</span><br><span class="line">    qDebug() &lt;&lt; <span class="string">"app has started"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p class="button-outer"><a href="intro/demo.html"><span class="button">创建Deepin示例应用 ➤</span></a></p>
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
+<li><a id="link1" href="https://blog.csdn.net/qq_32768743/article/details/80056316" target="_blank" rel="noopener">【配置分享】CMake构建Qt</a></li>
+</ol>
+
+        <div id="react-support-footer-root"></div>
+        <div id="vcomments"></div>
+        <script src="http://file.lolimay.cn/av.js"></script>
+        <script src='http://file.lolimay.cn/valine2.js'></script>
+        <script>
+            new Valine({
+                av: AV,
+                el: '#vcomments',
+                placeholder: '欢迎留下您的评论，支持部分Markdown语法，如 *斜体*、**加粗**、`行内代码`、[超链接](链接地址)、![图片](图片地址) 等',
+                appId: 'IPBpubcWq8eH9zMVTawxUhOI-gzGzoHsz',
+                appKey: '94JwYNiBKLao9XN20MLKGzlv',
+                smiles_url: 'http://file.lolimay.cn',
+                pageSize: 100,
+                avatar:'',
+                visitor: true,
+                notify: false,
+                verify: false
+            })
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="http://file.lolimay.cn/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="http://file.lolimay.cn/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+      
+    
+    <div id="footer">Powered by <a href="https://hexo.io">Hexo</a> Theme <a href="https://github.com/zalando-incubator/hexo-theme-doc">hexo-theme-doc</a></div>
+  </body>
+</html>
