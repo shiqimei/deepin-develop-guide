@@ -162,7 +162,7 @@ OC0wNzowMN1XQh4AAAAASUVORK5CYII=" /></svg>论坛</div></a></a><a href="https://g
         color: #34495e;
     }
     .intro {
-        color: #7f8c8d;
+        color: #666;
         font-size: 18px;
         padding: 0 100px;
         text-indent: 2em;

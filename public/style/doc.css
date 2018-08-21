@@ -63,3 +63,6 @@ div#vcomments {margin-top:100px;} .v .vwrap {border:1px solid #ccc!important;}
    background: rgba(51, 177, 255, 1);
    box-shadow: 0 0 15px 0 rgba(51, 177, 255, .7);
 }
+textarea.veditor::placeholder {
+  color: rgba(210, 210, 210, 1)
+}
