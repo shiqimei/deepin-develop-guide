@@ -1,6 +1,4 @@
-<h1 class="title">《Deepin 开发指南》<a href="https://github.com/loliMay/deepin-develop-guide"><img src="https://img.shields.io/github/stars/loliMay/deepin-develop-guide.svg?style=social"/></h1><p class="intro">一直以来都有个想法，去为 deepin 写一些文档，借此方便后来的开发者，帮助他们尽快地投入到 deepin 应用软件的开发中。于是出现了这一系列教程，这份《Deepin 开发指南》就是为 deepin developer 量身打造的入门教程，从开发环境的搭建与配置、编写一个完整项目到可执行文件的打包，涵盖了项目开发的整个流程，教程的最后还有 deepin tool kit 的完整 API 手册，供开发者查阅。由于作者本人才疏学浅，错误难免，欢迎在评论区中指正或者给作者提 [PR](https://github.com/loliMay/deepin-develop-guide/pulls)。</p><p class="intro">你可以通过以下方式支持作者的工作：
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方式一&nbsp;&nbsp;&nbsp;&nbsp;[star](https://github.com/loliMay/deepin-develop-guide) 这个项目(右上角 star)，你的 star 是作者坚持写下去的源动力
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方式二&nbsp;&nbsp;&nbsp;&nbsp;[参与写作&校对](https://github.com/loliMay/deepin-develop-guide#user-content-%E5%8F%82%E4%B8%8E%E5%86%99%E4%BD%9C%E6%A0%A1%E5%AF%B9)</p><p class="intro">最后，希望这份教程能够对你有所帮助，Have fun！</p><div class="button-box"><a href="intro/start.html"><div class="homepage-button">起步</div></a><a href="https://bbs.deepin.org/forum.php?mod=viewthread&tid=167205" target="_blank"><div class="icon-button"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="128px" viewBox="0 0 128 128" enable-background="new 0 0 128 128" xml:space="preserve">  <image id="image0" x="0" y="0"
+<h1 class="title">《Deepin 开发指南》<a href="https://github.com/loliMay/deepin-develop-guide"><img src="https://img.shields.io/github/stars/loliMay/deepin-develop-guide.svg?style=social"/></h1><p class="intro">一直以来都有个想法，去为 deepin 写一些文档，借此方便后来的开发者，帮助他们尽快地投入到 deepin 应用软件的开发中。于是出现了这一系列教程，这份《Deepin 开发指南》就是为 deepin developer 量身打造的入门教程，从开发环境的搭建与配置、编写一个完整项目到可执行文件的打包，涵盖了项目开发的整个流程，教程的最后还有 deepin tool kit 的完整 API 手册，供开发者查阅。由于作者本人才疏学浅，错误难免，欢迎在评论区中指正或者给作者提 [PR](https://github.com/loliMay/deepin-develop-guide/pulls)。</p><p class="intro">你可以通过以下方式支持作者的工作：<p class="intro indent">方式一 [star](https://github.com/loliMay/deepin-develop-guide) 这个项目(右上角 star)，你的 star 是作者坚持写下去的源动力</p><p class="intro indent">方式二 [参与写作&校对](https://github.com/loliMay/deepin-develop-guide#user-content-%E5%8F%82%E4%B8%8E%E5%86%99%E4%BD%9C%E6%A0%A1%E5%AF%B9)</p><p class="intro">最后，希望这份教程能够对你有所帮助，Have fun！</p><div class="button-box"><a href="intro/start.html"><div class="homepage-button">起步</div></a><a id="forum-button" href="https://bbs.deepin.org/forum.php?mod=viewthread&tid=167205" target="_blank"><div class="icon-button"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="128px" viewBox="0 0 128 128" enable-background="new 0 0 128 128" xml:space="preserve">  <image id="image0" x="0" y="0"
     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
 AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAg
 lElEQVR42u1deXRTx7n/jXZLsuQd7whssMGUfQ0hkBACBBJoCIQAAZIWSpbXHPJoXtOkD2gfaV9K
@@ -170,6 +168,9 @@ OC0wNzowMN1XQh4AAAAASUVORK5CYII=" /></svg>论坛</div></a></a><a href="https://g
         text-indent: 2em;
         margin:0;
     }
+    .indent {
+        text-indent:4em;
+    }
     .button-box {
         margin:40px;
         text-align: center;
@@ -199,6 +200,7 @@ OC0wNzowMN1XQh4AAAAASUVORK5CYII=" /></svg>论坛</div></a></a><a href="https://g
         padding-left: 3em;
         transition: .5s all;
         margin-right: 20px;
+        font-weight: 500;
     }
     .icon-button>svg {
         width: 1.5em;
@@ -214,7 +216,27 @@ OC0wNzowMN1XQh4AAAAASUVORK5CYII=" /></svg>论坛</div></a></a><a href="https://g
     }
 @media (max-width: 1700px) {
     .intro {
+        padding: 40px 0;
+    }
+}
+@media (max-width: 450px) {
+    .intro {
         padding: 0;
+        text-indent:0;
+    }
+    .indent {
+        text-indent:2em;
+    }
+    .title {
+        padding:10px 0;
+        font-size:30px;
+        line-height:1.8;
+    }
+    .button-box {
+        margin: 40px 0;
+    }
+    #forum-button {
+        display:none;
     }
 }
 </style>
