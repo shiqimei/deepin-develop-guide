@@ -50,7 +50,7 @@ OK->Apply 保存后打开菜单，**File->Settings->Appearance & Behavior->Proje
 ![](http://images.lolimay.cn/18-8-17/38622151.jpg)
 
 ## 1.4 用 CMake 构建 Qt 项目
-在学习本节内容前，如果你不清楚什么是 CMake，请先看我们为你提供的 [CMake入门教程](intro/cmake/cmake.html)。
+在学习本节内容前，如果你不清楚什么是 CMake，请先看我们为你提供的 [CMake入门教程](cmake/cmake.html)。
 
 CLion 使用 CMake 作为构建工具，使用 CLion 创建 Qt 项目一个较好的项目模板<sup><a href="#link1">1</a></sup>如下，建议新手创建 Qt 项目均按此模板创建。
 ### 项目目录结构
@@ -136,7 +136,7 @@ int main(int argc, char *argv[]) {
 }
 ````
 
-<p class="button-outer"><a href="intro/demo.html"><span class="button">创建Deepin示例应用 ➤</span></a></p>
+<p class="button-outer"><a href="demo.html"><span class="button">创建Deepin示例应用 ➤</span></a></p>
 
 ## 参考链接
 1. <a id="link1" href="https://blog.csdn.net/qq_32768743/article/details/80056316">【配置分享】CMake构建Qt</a>
