@@ -66,3 +66,7 @@ div#vcomments {margin-top:100px;} .v .vwrap {border:1px solid #ccc!important;}
 textarea.veditor::placeholder {
   color: rgba(210, 210, 210, 1)
 }
+.dc-card img:active {
+  transform:scale(1.5);
+  transition:.5s all;
+}

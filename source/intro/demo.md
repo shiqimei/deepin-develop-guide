@@ -16,7 +16,7 @@
 CLion 会自动在每个项目的根目录下创建 **cmake-build-debug** 文件夹，这个文件夹的内容是自动生成的，我们无需关心。
 
 ## 2.2 对原有项目进行改造
-下面我们按照 <a href="/index.html#1-4-%E7%94%A8-CMake-%E6%9E%84%E5%BB%BA-Qt-%E9%A1%B9%E7%9B%AE" target="_blank">起步 - 1.4 用 CMake 构建 Qt</a> 中提供的项目模板对原来的项目进行改造，改造后的结果如下
+下面我们按照 <a href="start.html#1-4-%E7%94%A8-CMake-%E6%9E%84%E5%BB%BA-Qt-%E9%A1%B9%E7%9B%AE" target="_blank">起步 - 1.4 用 CMake 构建 Qt</a> 中提供的项目模板对原来的项目进行改造，改造后的结果如下
 
 ![](http://images.lolimay.cn/18-8-18/90831166.jpg)
 
@@ -42,7 +42,7 @@ CLion 会自动在每个项目的根目录下创建 **cmake-build-debug** 文件
 
 ![](http://images.lolimay.cn/18-8-18/34186974.jpg)
 
-**原因**： 缺少 DTK 组件 (点击这里[了解 DTK](/intro/dtk.html))，应该是在 [起步 - 步骤 1.2.1](http://deepin.lolimay.cn/index.html#1-2-%E9%83%A8%E7%BD%B2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83) 中没有正确地安装完整的 dtk 工具包
+**原因**： 缺少 DTK 组件 (点击这里[了解 DTK](/intro/dtk.html))，应该是在 <a href="start.html#1-2-%E9%83%A8%E7%BD%B2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83" target="_blank">起步 - 步骤 1.2.1</a> 中没有正确地安装完整的 dtk 工具包
 **解决方法**： 打开终端，输入以下命令
 ````bash lolimay@lolimay-PC:
 sudo apt install libdtkbase-dev libdtkwidget-dev libdframeworkdbus-dev -y #安装dtk工具包
