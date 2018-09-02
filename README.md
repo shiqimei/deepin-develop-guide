@@ -35,7 +35,7 @@
 ## [附录]()
 - [deepin常用路径](http://deepin.lolimay.cn/booklet/path.html#%E5%BA%94%E7%94%A8%E6%95%B0%E6%8D%AE%E8%B7%AF%E5%BE%84)
     - [应用数据路径](http://deepin.lolimay.cn/booklet/path.html#%E5%BA%94%E7%94%A8%E6%95%B0%E6%8D%AE%E8%B7%AF%E5%BE%84)
-    - [启动器图标所在路径](http://deepin.lolimay.cn0/booklet/path.html#%E5%90%AF%E5%8A%A8%E5%99%A8%E5%9B%BE%E6%A0%87%E6%89%80%E5%9C%A8%E8%B7%AF%E5%BE%84)
+    - [启动器图标所在路径](http://deepin.lolimay.cn/booklet/path.html#%E5%90%AF%E5%8A%A8%E5%99%A8%E5%9B%BE%E6%A0%87%E6%89%80%E5%9C%A8%E8%B7%AF%E5%BE%84)
     - [桌面路径](http://deepin.lolimay.cn/booklet/path.html#%E6%A1%8C%E9%9D%A2%E8%B7%AF%E5%BE%84)
     - [参考链接](http://deepin.lolimay.cn/booklet/path.html#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5)
 
