@@ -1,5 +1,5 @@
 logo:
-  text: Deepin开发指南
+  text: deepin开发指南
   type: link
   path: index.html
 main:
@@ -27,6 +27,10 @@ main:
   path: intro/dtk.html
 - text: API 手册
   type: label
+- text: 附录
+  type: label
+- text: deepin常用路径
+  path: booklet/path.html
 - text: 在Github上编辑此文档
   type: link
   path: https://github.com/loliMay/deepin-develop-guide
