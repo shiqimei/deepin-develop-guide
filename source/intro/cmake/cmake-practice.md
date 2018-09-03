@@ -2,8 +2,8 @@
 ## 3.5 单个源文件
 CMake 适用于比较大的项目，但如果连简单项目的 CMakeLists.txt 都不会写更何况比较大的项目。下面我们从最简单的情况入门，尝试构建单个源文件。建议自己亲自动手实践下面所有的案例，这样印象会更加深刻。VS Code 是一款优秀的跨平台代码编辑器，下面的练习推荐使用 [VS Code](https://code.visualstudio.com/) 进行实践。
 1. 新建项目文件夹 demo1
-2. 新建 hello.cpp
-````cpp demo1/hello.cpp
+2. 新建 demo.cpp
+````cpp demo1/demo.cpp
 #include <stdio.h>
 
 int main(int argc, char const *argv[])
@@ -12,8 +12,8 @@ int main(int argc, char const *argv[])
     return 0;
 }
 ````
-3. 新建 CMakeList.txt
-````cpp demo1/CMakeList.txt
+3. 新建 CMakeLists.txt
+````cpp demo1/CMakeLists.txt
 cmake_minimum_required(VERSION 3.8) #要求CMake的最低版本为3.8
 project(demo1) #指定项目名称为demo1
 add_executable(demo demo1.cpp) #指定生成的可执行文件名和所需源文件 格式: add_executable(生成的可执行文件名 源文件1 源文件2 ...)
