@@ -93,7 +93,7 @@ make -j4 #开 4 个线程去编译项目
 ````
 
 运行结果
-![](http://images.lolimay.cn/18-8-20/91665209.jpg)
+![](http://images.lolimay.cn/18-9-5/32502741.jpg)
 
 #### [点击查看本示例源码](https://github.com/loliMay/deepin-develop-guide/tree/master/example/cmake/demo2)
 
