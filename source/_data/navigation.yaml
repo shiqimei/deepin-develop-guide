@@ -33,6 +33,8 @@ main:
   path: booklet/desktop.html
 - text: deepin常用路径
   path: booklet/path.html
+- text: 以管理员身份运行你的应用
+  path: booklet/polkit.html
 - text: 在Github上编辑此文档
   type: link
   path: https://github.com/loliMay/deepin-develop-guide

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Deepin开发指南</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/images/favicon.ico">
+
+    
+
+  </head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"booklet/polkit.html","title":""},"data":{"navigation":{"logo":{"text":"deepin开发指南","type":"link","path":"index.html"},"main":[{"type":"label"},{"text":"新手上路","type":"label"},{"text":"起步","type":"link","path":"intro/start.html"},{"text":"创建Deepin示例应用","type":"link","path":"intro/demo.html"},{"text":"CMake入门教程","type":"link","path":"intro/cmake/cmake.html","children":[{"text":"CMake入门","type":"link","path":"intro/cmake/cmake-base.html"},{"text":"CMake实战","type":"link","path":"intro/cmake/cmake-practice.html"}]},{"text":"Deepin Tool Kit","type":"link","path":"intro/dtk.html"},{"text":"API 手册","type":"label"},{"text":"附录","type":"label"},{"text":"desktop文件入门","path":"booklet/desktop.html"},{"text":"deepin常用路径","path":"booklet/path.html"},{"text":"以管理员身份运行你的应用","path":"booklet/polkit.html"},{"text":"在Github上编辑此文档","type":"link","path":"https://github.com/loliMay/deepin-develop-guide"}]}},"config":{"timezone":"UTC","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"images/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">deepin开发指南</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h1 id="以管理员身份运行你的应用——polkit"><a href="#以管理员身份运行你的应用——polkit" class="headerlink" title="以管理员身份运行你的应用——polkit"></a>以管理员身份运行你的应用——polkit</h1><p>在开发Linux桌面软件的时候，应用的大部分操作都是以普通用户的身份来运行的，这样比较安全。但又有时候我们需要用其他用户的身份执行一些操作，通常是root用户。</p>
+<h2 id="方法一-sudo命令"><a href="#方法一-sudo命令" class="headerlink" title="方法一 sudo命令"></a>方法一 sudo命令</h2><p>以gedit为例<br>通常我们都是直接执行 <code>sudo gedit</code> 来临时提升权限，这时我们需要手动输入密码进行验证</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo "passwd" | sudo -S gedit</span><br><span class="line"><span class="meta">#</span> sudo 的-S选项是从标准输出流读取密码</span><br></pre></td></tr></table></figure>
+<p>如果使用这种方法，密码无误的话就可以正常执行了，不会弹出授权窗口。你可以自己写一个弹窗，如果这样，在索要用户权限的时候，程序就可以获得用户的密码了（容易受到用户的质疑），自己使用的程序倒是无妨，如果软件是需要开放给用户使用不推荐。</p>
+<h2 id="方法二-polkit"><a href="#方法二-polkit" class="headerlink" title="方法二 polkit"></a>方法二 polkit</h2><p>如图所示：<br><img src="./polkit-images/polkit-screenshot.png" alt="polkit-screenshot"><br>这个窗口常见到吧，这个是怎么调出来的呢？</p>
+<p>常见的Linux发行版都有polkit模块，deepin也开发了一套，称为<a href="https://github.com/linuxdeepin/dde-polkit-agent" target="_blank" rel="noopener">dde-polkit-agent</a>，它是遵守<a href="https://www.freedesktop.org/software/polkit/docs/latest/polkit.8.html" target="_blank" rel="noopener">polkit的freedesktop规范</a>的。<br>我们只要配置好规则文件然后在终端执行：<code>pkexec [可执行文件]</code> 就可以看到这个授权窗口</p>
+<h3 id="1-创建policy配置文件"><a href="#1-创建policy配置文件" class="headerlink" title="1. 创建policy配置文件"></a>1. 创建policy配置文件</h3><p>以deepin的/usr/share/polkit-1/actions/com.deepin.pkexec.dde-file-manager.policy文件为例：<br>示例中被 <code>&lt;！-- --&gt;</code> 包裹的是注释，会被polkit忽略掉</p>
+<figure class="highlight xml"><figcaption><span>com.deepin.pkexec.dde-file-manager.policy</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE policyconfig PUBLIC</span></span><br><span class="line"><span class="meta"> "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"</span></span><br><span class="line"><span class="meta"> "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">policyconfig</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">vendor</span>&gt;</span>Deepin<span class="tag">&lt;/<span class="name">vendor</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">vendor_url</span>&gt;</span>https://www.deepin.com<span class="tag">&lt;/<span class="name">vendor_url</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 权限ID，这个必须唯一 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">action</span> <span class="attr">id</span>=<span class="string">"com.deepin.pkexec.dde-file-manager"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 图标 这个我不知道存在哪里，再研究研究--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">icon_name</span>&gt;</span>folder<span class="tag">&lt;/<span class="name">icon_name</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 弹窗提示 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">message</span>&gt;</span>Authentication is required to run the Deepin File Manager<span class="tag">&lt;/<span class="name">message</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">defaults</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">allow_any</span>&gt;</span>no<span class="tag">&lt;/<span class="name">allow_any</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">allow_inactive</span>&gt;</span>no<span class="tag">&lt;/<span class="name">allow_inactive</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">allow_active</span>&gt;</span>auth_admin_keep<span class="tag">&lt;/<span class="name">allow_active</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 这个defaults节点下的所有子节点可以有这些值no,yes,auth_self,auth_admin,auth_self_keep,auth_admin_keep　--&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">defaults</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 语言为简体中文时的弹窗提示 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">message</span> <span class="attr">xml:lang</span>=<span class="string">"zh_CN"</span>&gt;</span>查看文件夹需要输入密码<span class="tag">&lt;/<span class="name">message</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 权限提升的可执行文件，需是二进制文件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">annotate</span> <span class="attr">key</span>=<span class="string">"org.freedesktop.policykit.exec.path"</span>&gt;</span>/usr/bin/dde-file-manager<span class="tag">&lt;/<span class="name">annotate</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 这行听说是是否允许GUI，但是测试的时候好像不起作用 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">annotate</span> <span class="attr">key</span>=<span class="string">"org.freedesktop.policykit.exec.allow_gui"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">annotate</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">policyconfig</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>只需要根据你的需要创建一份这样的文件（以policy结尾），然后保存到/usr/share/polkit-1/action这个目录下。<br>可以执行 <code>pkaction</code> 查看现有的policy</p>
+<h3 id="2-调出弹窗"><a href="#2-调出弹窗" class="headerlink" title="2. 调出弹窗"></a>2. 调出弹窗</h3><p>在终端执行 <code>pkexec [二进制可执行文件]</code><br>当然，根据上述配置文件，显然应该执行 <code>pkexec /usr/bin/dde-file-manager</code>。</p>
+<p>如果要给脚本提权怎么办呢？因为pkexec后面需要接一个二进制的可执行文件，我们就需要借助一个shell解释器——它是一个二进制的可执行文件，我们选用/bin/bash，先给bash创建一个policy文件(deepin不用创建，已经有了)，然后执行 <code>pkexec /bin/bash -x [脚本]</code> 将脚本作为bash的参数。</p>
+<p>不过在deepin下执行有个BUG，因为深度显卡驱动管理器的脚本提权用到了bash，所以脚本提权会显示驱动管理器的图标和提示。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
+<li><a href="https://www.freedesktop.org/software/polkit/docs/latest/polkit.8.html" target="_blank" rel="noopener">freedestop的polkit介绍</a>  </li>
+<li><a href="https://www.freedesktop.org/software/polkit/docs/latest/pkexec.1.html" target="_blank" rel="noopener">freedesktop的pkexec介绍</a>  </li>
+<li><a href="https://segmentfault.com/a/1190000008063961" target="_blank" rel="noopener">深度文件管理器技术填坑笔记
+</a></li>
+</ol>
+
+        <div id="react-support-footer-root"></div>
+        <div id="vcomments"></div>
+        <script src="http://file.lolimay.cn/av.js"></script>
+        <script src='http://file.lolimay.cn/valine2.js'></script>
+        <script>
+            new Valine({
+                av: AV,
+                el: '#vcomments',
+                placeholder: '欢迎留下您的评论，支持部分Markdown语法，如 *斜体*、**加粗**、`行内代码`、[超链接](链接地址)、![图片](图片地址) 等',
+                appId: 'IPBpubcWq8eH9zMVTawxUhOI-gzGzoHsz',
+                appKey: '94JwYNiBKLao9XN20MLKGzlv',
+                smiles_url: 'http://file.lolimay.cn',
+                pageSize: 100,
+                avatar:'',
+                visitor: true,
+                notify: false,
+                verify: false
+            })
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="http://file.lolimay.cn/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="http://file.lolimay.cn/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+      
+    
+    <div id="footer">Powered by <a href="https://hexo.io">Hexo</a> Theme <a href="https://github.com/zalando-incubator/hexo-theme-doc">hexo-theme-doc</a></div>
+  </body>
+</html>
