@@ -73,5 +73,5 @@
 ````
 可自由在 **source/** 文件夹下创建文件夹和 Markdown 文件，添加一个新的教程页需要在 **navigation.yaml** 文件中指定它在左侧导航栏中的位置
 
-# 更新日志
-> 2018年8月20日 写完 [CMake入门教程 - CMake入门章节](http://deepin.lolimay.cn/intro/cmake/cmake-base.html)
+# 贡献者
+[<img alt="nujhong" src="https://avatars3.githubusercontent.com/u/32427260?s=460&v=4&s=117" width="117">](https://github.com/lolimay)[<img alt="zhangzhengyi12" src="https://avatars3.githubusercontent.com/u/18530271?s=460&v=4&s=117" width="117">](https://github.com/ziqiangxu)
