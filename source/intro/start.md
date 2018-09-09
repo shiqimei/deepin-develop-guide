@@ -28,7 +28,9 @@ sudo apt install clion -y #安装 CLion
 3. 在文件夹中打开该文件，解压得到 **clion-2018.2.1** 文件夹
 4. 执行 **clion-2018.2.1/bin** 目录下的 **clion.sh** 脚本，安装程序会自动启动
 5. 此后跟着CLion安装引导程序的提示一路往下即可安装成功
+6. （可选） CLion不支持多语言，但Github上有大牛维护的 CLion 汉化包，[戳这了解更多](https://github.com/pingfangx/TranslatorX)。
 > 注意：CLion 为商业软件，提供 30 天试用，授权许可是 89 美元每年，以后逐年递减，**学生或开源项目认证通过后可免费使用**，详情请关注官网。<s>如果实在资金不允许，百度上也有对应的解决方案，这里不便叙述。</s>建议有条件的开发者能够购买正版。
+
 
 ## 1.3 配置CLion
 CLion 是一款优秀的C/C++ IDE，很遗憾的是，它并不支持直接编辑 **.ui** 文件（Qt界面文件），这里我们需要添加 Qt Designer 作为 CLion 的 External Tools，以便于直接在 CLion 中直接调用 Qt Creator 来设计界面。
