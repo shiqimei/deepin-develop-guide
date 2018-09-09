@@ -29,6 +29,8 @@ main:
   type: label
 - text: 附录
   type: label
+- text: desktop文件入门
+  path: booklet/desktop.html
 - text: deepin常用路径
   path: booklet/path.html
 - text: 在Github上编辑此文档
