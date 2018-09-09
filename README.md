@@ -33,11 +33,22 @@
 ## [API手册]()
 - [Deepin Tool Kit API]()（计划）
 ## [附录]()
+- [desktop文件入门](http://deepin.lolimay.cn/booklet/desktop.html)
+    - [desktop文件模板](http://deepin.lolimay.cn/booklet/desktop.html#desktop%E6%96%87%E4%BB%B6%E6%A8%A1%E6%9D%BF)
+    - [应用示例](http://deepin.lolimay.cn/booklet/desktop.html#%E5%BA%94%E7%94%A8%E7%A4%BA%E4%BE%8B)
+    - [添加到启动器](http://deepin.lolimay.cn/booklet/desktop.html#%E6%B7%BB%E5%8A%A0%E5%88%B0%E5%90%AF%E5%8A%A8%E5%99%A8)
+    - [Categories](http://deepin.lolimay.cn/booklet/desktop.html#Categories-%E5%8F%82%E6%95%B0)
+    - [附表：Categories对照表](http://deepin.lolimay.cn/booklet/desktop.html#%E9%99%84%E8%A1%A8%EF%BC%9ACategories-%E5%AF%B9%E7%85%A7%E8%A1%A8)
+    - [参考链接](http://deepin.lolimay.cn/booklet/desktop.html#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5)
 - [deepin常用路径](http://deepin.lolimay.cn/booklet/path.html#%E5%BA%94%E7%94%A8%E6%95%B0%E6%8D%AE%E8%B7%AF%E5%BE%84)
     - [应用数据路径](http://deepin.lolimay.cn/booklet/path.html#%E5%BA%94%E7%94%A8%E6%95%B0%E6%8D%AE%E8%B7%AF%E5%BE%84)
     - [启动器图标所在路径](http://deepin.lolimay.cn/booklet/path.html#%E5%90%AF%E5%8A%A8%E5%99%A8%E5%9B%BE%E6%A0%87%E6%89%80%E5%9C%A8%E8%B7%AF%E5%BE%84)
     - [桌面路径](http://deepin.lolimay.cn/booklet/path.html#%E6%A1%8C%E9%9D%A2%E8%B7%AF%E5%BE%84)
     - [参考链接](http://deepin.lolimay.cn/booklet/path.html#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5)
+- [以管理员身份运行你的应用](http://deepin.lolimay.cn/booklet/polkit.html)
+    - [方法一 sudo命令](http://deepin.lolimay.cn/booklet/polkit.html#%E6%96%B9%E6%B3%95%E4%B8%80-sudo%E5%91%BD%E4%BB%A4)
+    - [方法二 polkit](http://deepin.lolimay.cn/booklet/polkit.html#%E6%96%B9%E6%B3%95%E4%BA%8C-polkit)
+    - [参考链接](http://deepin.lolimay.cn/booklet/polkit.html#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5)
 
 # 参与写作&校对
 1. Fork 此仓库
