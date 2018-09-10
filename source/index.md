@@ -153,7 +153,7 @@ OC0wNzowMN1XQh4AAAAASUVORK5CYII=" /></svg>论坛</div></a></a><a href="https://g
 <h1 class="title">Contributors
 
 [<img alt="nujhong" src="https://avatars3.githubusercontent.com/u/32427260?s=460&v=4&s=117" width="117">](https://github.com/lolimay)[<img alt="zhangzhengyi12" src="https://avatars3.githubusercontent.com/u/18530271?s=460&v=4&s=117" width="117">](https://github.com/ziqiangxu)</h1>
-<p><a href="https://github.com/loliMay/deepin-develop-guide#user-content-%E5%8F%82%E4%B8%8E%E5%86%99%E4%BD%9C%E6%A0%A1%E5%AF%B9">Join us and become contributors</a></p>
+<p><a href="https://github.com/loliMay/deepin-develop-guide#user-content-%E5%8F%82%E4%B8%8E%E5%86%99%E4%BD%9C%E6%A0%A1%E5%AF%B9">Join us and become contributor</a></p>
 </div>
 
 <style>
