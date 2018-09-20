@@ -11,9 +11,9 @@
 ```sh
 sudo apt update #更新软件源
 sudo apt install qtcreator-dde qttools5-dev g++ -y #安装Qt和g++
-sudo apt install libdtkbase-dev libdtkwidget-dev libdframeworkdbus-dev -y #安装dtk工具包
-sudo apt install libdtkcore-dev libdtksettings-dev libdtksettingsview-dev libdtkutil-dev libdtkwidget-dev libdtkwm-dev -y
-sudo apt install cmake #安装cmake
+sudo apt install libdtkcore-dev libdtkwidget-dev
+sudo apt install libdtkcore-bin libdtksettings-dev libdtksettingsview-dev -y #安装dtk工具包
+sudo apt install cmake -y #安装cmake
 ```
 ### 1.2.2 安装 CLion
 官方源中的 CLion 还是 2017.2 版本的，已经比较旧了，官网目前最新的是 2018.2 版本
