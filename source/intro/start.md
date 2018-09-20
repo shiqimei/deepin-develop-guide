@@ -11,8 +11,8 @@
 ```sh
 sudo apt update #更新软件源
 sudo apt install qtcreator-dde qttools5-dev g++ -y #安装Qt和g++
-sudo apt install libdtkcore-dev libdtkwidget-dev
-sudo apt install libdtkcore-bin libdtksettings-dev libdtksettingsview-dev -y #安装dtk工具包
+sudo apt install libdtkcore-dev libdtkwidget-dev -y #安装dtk工具包
+sudo apt install libdtkcore-bin libdtksettings-dev libdtksettingsview-dev -y
 sudo apt install cmake -y #安装cmake
 ```
 ### 1.2.2 安装 CLion
