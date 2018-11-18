@@ -79,11 +79,16 @@
     <script src="http://file.lolimay.cn/lunr.min.js"></script>
     <script src="http://images.lolimay.cn/socket.io.js"></script>
     <script>
+      const xhr = new XMLHttpRequest()
       const socket = io('http://120.79.164.229:52050')
+
+      xhr.open('get', 'http://120.79.164.229:52050/?register=true') // register
+      xhr.send()
+
       socket.on('news', function (data) {
           console.log(data);
           socket.emit('my other event', { my: 'data' });
-      });
+      })
     </script>
     <!-- js source  -->
     <script src="/script/doc.js"></script>
