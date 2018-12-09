@@ -24,7 +24,7 @@
   </head>
   <body>
 
-   <script>window.__INITIAL_STATE__ = {"page":{"path":"intro/dtk.html","title":""},"data":{"navigation":{"logo":{"text":"deepin开发指南","type":"link","path":"index.html"},"main":[{"type":"label"},{"text":"新手上路","type":"label"},{"text":"起步","type":"link","path":"intro/start.html"},{"text":"创建Deepin示例应用","type":"link","path":"intro/demo.html"},{"text":"CMake入门教程","type":"link","path":"intro/cmake/cmake.html","children":[{"text":"CMake入门","type":"link","path":"intro/cmake/cmake-base.html"},{"text":"CMake实战","type":"link","path":"intro/cmake/cmake-practice.html"}]},{"text":"Deepin Tool Kit","type":"link","path":"intro/dtk.html"},{"text":"走近deepin","type":"label"},{"text":"deepin研发心得","type":"link","path":"deepin/R&D/index.html","children":[{"text":"deepin 15.4 研发心得","type":"link","path":"deepin/R&D/15_4/index.html"},{"text":"deepin 15.5 研发心得","type":"link","path":"deepin/R&D/15_5/index.html"},{"text":"deepin 15.7 研发心得","type":"link","path":"deepin/R&D/15_7/index.html"},{"text":"deepin 15.8 研发心得","type":"link","path":"deepin/R&D/15_8/index.html"}]},{"text":"附录","type":"label"},{"text":"desktop文件入门","path":"booklet/desktop.html"},{"text":"deepin常用路径","path":"booklet/path.html"},{"text":"以管理员身份运行你的应用","path":"booklet/polkit.html"},{"text":"在Github上编辑此文档","type":"link","path":"https://github.com/loliMay/deepin-develop-guide"}]}},"config":{"timezone":"UTC","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"images/favicon.ico"}}}</script>
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"deepin/R&D/index.html","title":""},"data":{"navigation":{"logo":{"text":"deepin开发指南","type":"link","path":"index.html"},"main":[{"type":"label"},{"text":"新手上路","type":"label"},{"text":"起步","type":"link","path":"intro/start.html"},{"text":"创建Deepin示例应用","type":"link","path":"intro/demo.html"},{"text":"CMake入门教程","type":"link","path":"intro/cmake/cmake.html","children":[{"text":"CMake入门","type":"link","path":"intro/cmake/cmake-base.html"},{"text":"CMake实战","type":"link","path":"intro/cmake/cmake-practice.html"}]},{"text":"Deepin Tool Kit","type":"link","path":"intro/dtk.html"},{"text":"走近deepin","type":"label"},{"text":"deepin研发心得","type":"link","path":"deepin/R&D/index.html","children":[{"text":"deepin 15.4 研发心得","type":"link","path":"deepin/R&D/15_4/index.html"},{"text":"deepin 15.5 研发心得","type":"link","path":"deepin/R&D/15_5/index.html"},{"text":"deepin 15.7 研发心得","type":"link","path":"deepin/R&D/15_7/index.html"},{"text":"deepin 15.8 研发心得","type":"link","path":"deepin/R&D/15_8/index.html"}]},{"text":"附录","type":"label"},{"text":"desktop文件入门","path":"booklet/desktop.html"},{"text":"deepin常用路径","path":"booklet/path.html"},{"text":"以管理员身份运行你的应用","path":"booklet/polkit.html"},{"text":"在Github上编辑此文档","type":"link","path":"https://github.com/loliMay/deepin-develop-guide"}]}},"config":{"timezone":"UTC","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"images/favicon.ico"}}}</script>
 
     <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">deepin开发指南</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
     <div class="doc-content">
@@ -32,19 +32,32 @@
     <div class="dc-card">
       <div id="react-search-results-root"></div>
       <div id="page-content" class="doc-formatting">
-        <h2 id="DTK-简介"><a href="#DTK-简介" class="headerlink" title="DTK 简介"></a>DTK 简介</h2><p>DTK 全称 deepin-tool-kit，是 Deepin 基于 Qt5 开发的一整套UI图形库，包含一些工具类和大量的常用控件，能够帮助开发者快速地编写 Deepin 原生风格的应用<sup><a href="#link1">1</a></sup>，主要的功能有：</p>
-<ul>
-<li>提供单实例的接口，方便直接使用，不用造轮子</li>
-<li>提供窗口移动、缩放等一系列函数</li>
-<li>提供一大票美观的自绘控件</li>
-</ul>
-<p>DTK 于 2017 年 7 月完成重构<sup><a href="#link2">2</a></sup>，deepin-tool-kit 已被拆分成多个模块，包括 dtkcore、dtkwidget 和 dtkwm 等，其中 dtkwidget是控件库，包括所有系统和应用的控件、dtkcore是一些非控件的工具库函数<sup><a href="#link3">3</a></sup>。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
-<li><a id="link1" href="https://www.jianshu.com/p/e871723f9460" target="_blank" rel="noopener">深度桌面操作系统架构设计</a></li>
-<li><a id="link2" href="https://github.com/linuxdeepin/deepin-tool-kit/issues/8" target="_blank" rel="noopener">Deepin Tool Kit 重构 #8</a></li>
-<li><a id="link3" href="https://bbs.deepin.org/forum.php?mod=viewthread&tid=146363&page=1#pid385967" target="_blank" rel="noopener">请问dtk、dtkwidget、dtkcore之间是什么关系？</a></li>
-</ol>
+        <h1 id="deepin研发心得"><a href="#deepin研发心得" class="headerlink" title="deepin研发心得"></a>deepin研发心得</h1><p>deepin研发心得系列文章转载自简书，由 <a href="https://github.com/PikachuHy" target="_blank" rel="noopener">@PikachuHy</a> 收集整理。</p>
+<p class="button-outer"><a href="./15_4/index.html"><span class="button">开始阅读 ➤</span></a></p>
 
+<style>
+    .button {
+        margin-bottom: 550px;
+    }
+    /**
+     * responsive support
+     */
+     @media (max-height: 800px) {
+         .button {
+             margin-bottom: 363px;
+         }
+     }
+     @media (max-height: 700px) {
+         .button {
+             margin-bottom: 263px;
+         }
+     }
+     @media (max-height: 600px) {
+         .button {
+             margin-bottom: 163px;
+         }
+     }
+</style>
         <div id="react-support-footer-root"></div>
         <div id="vcomments"></div>
         <script src="http://file.lolimay.cn/av.js"></script>

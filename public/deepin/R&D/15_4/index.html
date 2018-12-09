@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Deepin开发指南</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/images/favicon.ico">
+
+    
+
+  </head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"deepin/R&D/15_4/index.html","title":""},"data":{"navigation":{"logo":{"text":"deepin开发指南","type":"link","path":"index.html"},"main":[{"type":"label"},{"text":"新手上路","type":"label"},{"text":"起步","type":"link","path":"intro/start.html"},{"text":"创建Deepin示例应用","type":"link","path":"intro/demo.html"},{"text":"CMake入门教程","type":"link","path":"intro/cmake/cmake.html","children":[{"text":"CMake入门","type":"link","path":"intro/cmake/cmake-base.html"},{"text":"CMake实战","type":"link","path":"intro/cmake/cmake-practice.html"}]},{"text":"Deepin Tool Kit","type":"link","path":"intro/dtk.html"},{"text":"走近deepin","type":"label"},{"text":"deepin研发心得","type":"link","path":"deepin/R&D/index.html","children":[{"text":"deepin 15.4 研发心得","type":"link","path":"deepin/R&D/15_4/index.html"},{"text":"deepin 15.5 研发心得","type":"link","path":"deepin/R&D/15_5/index.html"},{"text":"deepin 15.7 研发心得","type":"link","path":"deepin/R&D/15_7/index.html"},{"text":"deepin 15.8 研发心得","type":"link","path":"deepin/R&D/15_8/index.html"}]},{"text":"附录","type":"label"},{"text":"desktop文件入门","path":"booklet/desktop.html"},{"text":"deepin常用路径","path":"booklet/path.html"},{"text":"以管理员身份运行你的应用","path":"booklet/polkit.html"},{"text":"在Github上编辑此文档","type":"link","path":"https://github.com/loliMay/deepin-develop-guide"}]}},"config":{"timezone":"UTC","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"images/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/index.html" class="doc-navbar__logo"><img src="/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">deepin开发指南</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h1 id="15-4研发心得"><a href="#15-4研发心得" class="headerlink" title="15.4研发心得"></a>15.4研发心得</h1><blockquote>
+<p>文章来源: 简书 本文章转载已征求原作者同意</p>
+</blockquote>
+<h3 id="一群人的狂欢"><a href="#一群人的狂欢" class="headerlink" title="一群人的狂欢"></a>一群人的狂欢</h3><p>江湖传言，深度的系统只有在发布新版本的时候是最稳定的，从某种程度上来说，是这样的：每次系统发布前的一个月内，研发团队的各个部门都会像打了鸡血一样，不管是哪个项目组都能集结在一起，撸起袖子不眠不休地干，直到最终版的ISO静悄悄地躺在服务器上方止。发布前的这个月内，tower上会热闹非凡，各种需求会被被反复讨论、修改和重新编码，产品撕设计、设计撕开发、开发奋力改代码，再加上测试的介入……如果我想把这叫做一场战争，似乎好不为过。这是一个团队跟竞争对手的战争，更是一个团队对自己的战争，虽然乱，但是乱中有序；虽然累，但是苦尽甘来。每一次经过这种战争的洗礼，参与者会有进步，团队会有进步，我们的产品也会有质的飞跃。</p>
+<p>比较了解我们系统发布周期的人都知道，每个新版本的研发周期大概都定在在三个月左右，因为需求是无限的，时间如果也不固定，那么无限的需求意味着需要无限的时间，所以只能通过时间来约束需求，这叫时间决定需求理论。这么多次系统发布，可以说每次都有非常不同的经历，例如，V15是我第一次开始接手系统发布，慌张、手足无措；V15.1因为ISO存在严重问题，不得不紧急发布V15.1.1；V15.2中畅快淋漓的新Launcher和广受好评的网易云音乐；V15.3中再也不歪歪扭扭的新Dock。同样，V15.4带来的又是完全不一样的体验，说它特别，特别在更新内容之丰富，也特别在其中一些不同寻常的发布经历；</p>
+<p>硕果累累<br> 以前参加一次黑客马拉松的时候，有个IT爱好者对我说，Mac OS有一个很吸引人的地方在于，每次系统更新它都会带给人一种全新的感受，包括视觉上和体验上，有时候甚至感觉像是新买了一台笔记本。这句话我想了很久，觉得很赞同。超出用户预期的东西，多少都更容易打动用户。现在，如果你有一台装了deepin的电脑，那么这次V15.4的升级绝对会让你有这种“像是新买了一台电脑”的体验：</p>
+<p>首先是依照用户习惯重新设计的控制中心，快捷操作栏解决了用户常用的设置找不到的问题，一般的使用场景下，用户再也不需要到繁杂的设置中找到需要的连接WiFi、开启VPN、连接蓝牙设备等功能；而贴心的小插件让用户可以添加自己喜欢的扩展到自己控制中心的首页，千呼万唤的通知中心功能就是作为默认的插件集成到了首页的小插件中。</p>
+<p><img src="./image/control center.png" alt="control center"></p>
+<p>所有设置界面更是做了全面改版，从原来完全分隔开来的模块设计改成更现代化的滚动设计，好看亦好用。</p>
+<p><img src="./image/control center 2.png" alt="control center"></p>
+<p>多工作区壁纸的支持、切换工作区的表现形式以及终于用好看的壁纸盖住了窗管背后丑陋的单灰色界面等，窗管也迎来了一系列优化和改进。</p>
+<p><img src="./image/wm.png" alt="wm"><br><img src="./image/wm2.png" alt="wm"></p>
+<p>deepin作为现代化的桌面操作系统，OSD、菜单、通知和Dock都采用了同控制中心一样的毛玻璃效果，有没有感觉系统像羽毛一样轻？</p>
+<p><img src="./image/desktop.png" alt="desktop"></p>
+<p>曾经广受好评的深度音乐，终于迎来了新版；全新的设计，简洁、大方。</p>
+<p><img src="./image/music.png" alt="music"></p>
+<p>全新的安装器，一杯咖啡的时间，即可享用。</p>
+<p><img src="./image/installer.jpg" alt="installer"></p>
+<p>以及全新设计的U盘制作工具，保留原来操作习惯的同时，极大幅度的提高了应用的颜值。</p>
+<p><img src="./image/u.png" alt="u"></p>
+<p>还有深度家族的新成员：深度录屏，承袭深度家族高颜值的特点，自“出生”就广受好评。虽然目前还是Beta版本，但是已经相当稳定。</p>
+<p><img src="./image/screenshot.jpg" alt="screenshot"></p>
+<p>除此之外，深度家族的文件管理器和看图也将迎来一次大更新……像这种一次版本发布能带着这么多更新和新产品的，15.4当属第一。不仅如此，一些重新进行架构设计的项目，例如控制中心，在速度和资源占用上的优化也都集成在这个版本中，让你的系统颜值增加的同时，也能享受极致、流畅的体验。</p>
+<h3 id="协作"><a href="#协作" class="headerlink" title="协作"></a>协作</h3><p> “所有美好事物的背后都有一个辛勤耕耘的团队！”一位伟人说过。上面的累累硕果肯定让人振奋，但是研发团队研发15.4的过程却不是一帆风顺的，可以说是痛苦的。很多东西都是经过反复沟通和修改的，每一个细节，动画、线宽、色彩和交互，先是产品团队和设计团队做预先讨论和评审，再给开发团队和测试团队进行需求讲解，一是确保开发团队和测试团队能充分理解每一个需求点；另一个是在这个过程中又会有很多模棱两可或者不准确的需求被发现。就算是这个过程也顺利通过，谁又能确保开发在实现的时候不会发现新的设计缺陷？对于一个在细节上追求完美的团队来说，方案可能被小修小改，也可能被完全推翻。这样反反复复一直到系统发布前的一两个星期才算完……也不是说没得改了，而是三个月期限到了。</p>
+<p>曾经在一本书里面看到了两句诗：”独行潭底影，数息树边身“，顿觉找到了人生知己，贾岛他老人家虽然不一定知道操作系统是什么东西，但是我却能深深地理解他这种孤独感。这不是苏轼说得”高处不胜寒“那种孤独感，而是真实的“人好少啊”这种孤独感。这种感觉在V15.3时尤甚，因为我们组负责桌面环境，你在deepin上每天都会看到的任务栏、启动器和控制中心，以及时不时跳出来的各种对话框、菜单，都是桌面组在维护。还有一些可能比我们工龄还大的“老项目”，没有人维护的时候就需要桌面组接手，而15.3的时候桌面组忙得焦头烂额，其他组的各路大神也都忙的不亦乐乎。大家只能各自为战，一个萝卜一个坑，掉进去就出不来了。15.4不同的是，除了控制中心这个庞然大物和其他一些界面调整是桌面组的贡献外，其他的功劳还要归到文件管理器、看图、安装器和音乐等项目组的身上，有时候一个项目的可能是几个项目组协作完成的。这对比起15.3的时候，自然是另一番境地。</p>
+<h3 id="责任"><a href="#责任" class="headerlink" title="责任"></a>责任</h3><p> “众目睽睽之下，bug无所遁形。”说得的开源社区这种“集市”模式，让所有人都可以参与到一个像deepin这样庞大的项目当中，协作并产生贡献。但是，我一直觉得项目协作不仅仅需要的是参与，同样重要的是任何一个参与项目的人都要有一种责任感，最基本的责任就是不要做错误的事情，什么是错误的事情？举个例子，有一个朋友更我讲，他做完一个产品找设计师对细节的时候，设计师跟他说他拿到的设计图上的尺寸都是随便写的，还有一个最终稿……这种明知自己的工作做得不到位还要去坑别人的做法，我认为这就是错误的事情。另一个就是互相监督，尽量友好地阻止别人做错误的事。比如你是开发，知道需求有漏洞，就不要图省事或者其他原因，“需求说啥，我做啥”，这种做法不仅浪费自己的时间，也坑用户。</p>
+<p>很多人甚至包括我自己其实都对我们的产品到底有多少人在使用没有一个明确的概念，15.4的控制中心有一个天气插件，会在控制中心打开的时候从我们服务器拉取一次天气信息，所以我经常开玩笑说，如果正式版发布的时候这个服务因为太多人访问而挂了，我都不知道该哭还是笑。玩笑归玩笑，事实即使去掉我们用户中比例最大的一部分——社区用户，我们的企业用户也是很多在用我们的产品，稍有不慎可能就会造成无法计数的损失，这个我们都应该做到心里有数。</p>
+<p>说了这么多，无非就是一句，要相信“坚持做正确的事”可以避免自己和团队走过多弯路，最终受益的还是你自己。</p>
+<h3 id="轮回"><a href="#轮回" class="headerlink" title="轮回"></a>轮回</h3><p> 每次系统发布前都像是一次战争，每次系统发布又像是一场轮回。大的轮回是系统功能重新定义、设计、开发和发布，小的轮回是每个产品的周期性新功能、新设计、开发和维护，这就像是一个任何具有活力的生命一样，永无止境。deepin就在这样的轮回中，不停的更新和优化自己，让广大的用户可以少些折腾，多些快乐。</p>
+<p>最后，希望deepin在以后也能继续绽放光彩！</p>
+
+        <div id="react-support-footer-root"></div>
+        <div id="vcomments"></div>
+        <script src="http://file.lolimay.cn/av.js"></script>
+        <script src='http://file.lolimay.cn/valine2.js'></script>
+        <script>
+            new Valine({
+                av: AV,
+                el: '#vcomments',
+                placeholder: '欢迎留下您的评论，支持部分Markdown语法，如 *斜体*、**加粗**、`行内代码`、[超链接](链接地址)、![图片](图片地址) 等',
+                appId: 'IPBpubcWq8eH9zMVTawxUhOI-gzGzoHsz',
+                appKey: '94JwYNiBKLao9XN20MLKGzlv',
+                smiles_url: 'http://file.lolimay.cn',
+                pageSize: 100,
+                avatar:'',
+                visitor: true,
+                notify: false,
+                verify: false
+            })
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="http://file.lolimay.cn/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="http://file.lolimay.cn/lunr.min.js"></script>
+    <script src="http://images.lolimay.cn/socket.io.js"></script>
+    <script>
+      const xhr = new XMLHttpRequest()
+      const socket = io('http://120.79.164.229:52050')
+
+      xhr.open('get', 'http://120.79.164.229:52050/?register=true') // register
+      xhr.send()
+
+      socket.on('news', function (data) {
+          console.log(data);
+          socket.emit('my other event', { my: 'data' });
+      })
+    </script>
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <div id="footer">
+      Powered by <a href="https://hexo.io">Hexo</a> Theme <a href="https://github.com/zalando-incubator/hexo-theme-doc">hexo-theme-doc</a>
+      <div>
+        <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+        <span id="busuanzi_container_site_pv">本站总访客<span id="busuanzi_value_site_uv"></span>人</span>
+      </div>
+    </div>
+  </body>
+</html>

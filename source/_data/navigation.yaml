@@ -25,8 +25,24 @@ main:
 - text: Deepin Tool Kit
   type: link
   path: intro/dtk.html
-- text: API 手册
+- text: 走近deepin
   type: label
+- text: deepin研发心得
+  type: link
+  path: deepin/R&D/index.html
+  children:
+  - text: deepin 15.4 研发心得
+    type: link
+    path:  deepin/R&D/15_4/index.html
+  - text: deepin 15.5 研发心得
+    type: link
+    path:  deepin/R&D/15_5/index.html
+  - text: deepin 15.7 研发心得
+    type: link
+    path:  deepin/R&D/15_7/index.html
+  - text: deepin 15.8 研发心得
+    type: link
+    path:  deepin/R&D/15_8/index.html
 - text: 附录
   type: label
 - text: desktop文件入门
