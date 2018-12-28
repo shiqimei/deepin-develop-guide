@@ -13,36 +13,36 @@
 
 首先是依照用户习惯重新设计的控制中心，快捷操作栏解决了用户常用的设置找不到的问题，一般的使用场景下，用户再也不需要到繁杂的设置中找到需要的连接WiFi、开启VPN、连接蓝牙设备等功能；而贴心的小插件让用户可以添加自己喜欢的扩展到自己控制中心的首页，千呼万唤的通知中心功能就是作为默认的插件集成到了首页的小插件中。
 
-![control center](http://images.lolimay.cn/18-12-10/99655897.jpg)
+![control center](https://images.lolimay.cn/18-12-10/99655897.jpg)
 
 所有设置界面更是做了全面改版，从原来完全分隔开来的模块设计改成更现代化的滚动设计，好看亦好用。
 
-![control center](http://images.lolimay.cn/18-12-10/75256108.jpg)
+![control center](https://images.lolimay.cn/18-12-10/75256108.jpg)
 
 多工作区壁纸的支持、切换工作区的表现形式以及终于用好看的壁纸盖住了窗管背后丑陋的单灰色界面等，窗管也迎来了一系列优化和改进。
 
-![wm](http://images.lolimay.cn/18-12-10/72365554.jpg)
-![wm](http://images.lolimay.cn/18-12-10/12167899.jpg)
+![wm](https://images.lolimay.cn/18-12-10/72365554.jpg)
+![wm](https://images.lolimay.cn/18-12-10/12167899.jpg)
 
 deepin作为现代化的桌面操作系统，OSD、菜单、通知和Dock都采用了同控制中心一样的毛玻璃效果，有没有感觉系统像羽毛一样轻？
 
-![desktop](http://images.lolimay.cn/18-12-10/49337977.jpg)
+![desktop](https://images.lolimay.cn/18-12-10/49337977.jpg)
 
 曾经广受好评的深度音乐，终于迎来了新版；全新的设计，简洁、大方。
 
-![music](http://images.lolimay.cn/18-12-10/88329856.jpg)
+![music](https://images.lolimay.cn/18-12-10/88329856.jpg)
 
 全新的安装器，一杯咖啡的时间，即可享用。
 
-![installer](http://images.lolimay.cn/18-12-10/65464772.jpg)
+![installer](https://images.lolimay.cn/18-12-10/65464772.jpg)
 
 以及全新设计的U盘制作工具，保留原来操作习惯的同时，极大幅度的提高了应用的颜值。
 
-![u](http://images.lolimay.cn/18-12-10/98866110.jpg)
+![u](https://images.lolimay.cn/18-12-10/98866110.jpg)
 
 还有深度家族的新成员：深度录屏，承袭深度家族高颜值的特点，自“出生”就广受好评。虽然目前还是Beta版本，但是已经相当稳定。
 
-![screenshot](http://images.lolimay.cn/18-12-10/27806680.jpg)
+![screenshot](https://images.lolimay.cn/18-12-10/27806680.jpg)
 
 除此之外，深度家族的文件管理器和看图也将迎来一次大更新……像这种一次版本发布能带着这么多更新和新产品的，15.4当属第一。不仅如此，一些重新进行架构设计的项目，例如控制中心，在速度和资源占用上的优化也都集成在这个版本中，让你的系统颜值增加的同时，也能享受极致、流畅的体验。
 

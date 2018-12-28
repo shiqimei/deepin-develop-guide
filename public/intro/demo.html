@@ -33,31 +33,31 @@
       <div id="react-search-results-root"></div>
       <div id="page-content" class="doc-formatting">
         <h1 id="创建Deepin示例应用"><a href="#创建Deepin示例应用" class="headerlink" title="创建Deepin示例应用"></a>创建Deepin示例应用</h1><h2 id="2-1-创建一个空项目"><a href="#2-1-创建一个空项目" class="headerlink" title="2.1 创建一个空项目"></a>2.1 创建一个空项目</h2><p>打开 CLion，新建一个项目</p>
-<p><img src="http://images.lolimay.cn/18-8-18/65089447.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-8-18/65089447.jpg" alt=""></p>
 <p>修改项目名为 Demo，修改 C++ 标准为 C++17，点击 Create</p>
-<p><img src="http://images.lolimay.cn/18-8-18/89538457.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-8-18/89538457.jpg" alt=""></p>
 <p>双击项目文件夹，此时项目的目录结构应该如下所示</p>
-<p><img src="http://images.lolimay.cn/18-8-18/32475353.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-8-18/32475353.jpg" alt=""></p>
 <p>CLion 会自动在每个项目的根目录下创建 <strong>cmake-build-debug</strong> 文件夹，这个文件夹的内容是自动生成的，我们无需关心。</p>
 <h2 id="2-2-对原有项目进行改造"><a href="#2-2-对原有项目进行改造" class="headerlink" title="2.2 对原有项目进行改造"></a>2.2 对原有项目进行改造</h2><p>下面我们按照 <a href="start.html#1-4-%E7%94%A8-CMake-%E6%9E%84%E5%BB%BA-Qt-%E9%A1%B9%E7%9B%AE" target="_blank">起步 - 1.4 用 CMake 构建 Qt</a> 中提供的项目模板对原来的项目进行改造，改造后的结果如下</p>
-<p><img src="http://images.lolimay.cn/18-8-18/90831166.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-8-18/90831166.jpg" alt=""></p>
 <h2 id="2-3-重载并运行项目"><a href="#2-3-重载并运行项目" class="headerlink" title="2.3 重载并运行项目"></a>2.3 重载并运行项目</h2><p>现在我们右击项目，点击 <strong>Reload CMake Project</strong> 重载项目</p>
-<p><img src="http://images.lolimay.cn/18-8-21/25274282.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-8-21/25274282.jpg" alt=""></p>
 <p>若 CLion 的 Debug输出如下显示，则说明项目配置没有问题</p>
-<p><img src="http://images.lolimay.cn/18-8-18/2004859.jpg" alt=""></p>
-<p>最后，我们点击屏幕右上角的 <img src="http://images.lolimay.cn/18-8-18/7636848.jpg"> 绿色三角形按钮（红框标注），运行此示例项目</p>
-<p><img src="http://images.lolimay.cn/18-8-18/6100766.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-8-18/2004859.jpg" alt=""></p>
+<p>最后，我们点击屏幕右上角的 <img src="https://images.lolimay.cn/18-8-18/7636848.jpg"> 绿色三角形按钮（红框标注），运行此示例项目</p>
+<p><img src="https://images.lolimay.cn/18-8-18/6100766.jpg" alt=""></p>
 <p>运行结果如上图所示，恭喜你已跨入 Deepin 应用开发的大门！</p>
 <h4 id="点击查看本示例源码"><a href="#点击查看本示例源码" class="headerlink" title="点击查看本示例源码"></a><a href="https://github.com/loliMay/deepin-develop-guide/tree/master/example/Demo" target="_blank" rel="noopener">点击查看本示例源码</a></h4><h2 id="2-4-其它意外情况"><a href="#2-4-其它意外情况" class="headerlink" title="2.4 其它意外情况"></a>2.4 其它意外情况</h2><ol>
 <li>重载项目时 CLion 的 Debug 输出报错</li>
 </ol>
-<p><img src="http://images.lolimay.cn/18-8-18/34186974.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-8-18/34186974.jpg" alt=""></p>
 <p><strong>原因</strong>： 缺少 DTK 组件 (点击这里<a href="/intro/dtk.html">了解 DTK</a>)，应该是在 <a href="start.html#1-2-%E9%83%A8%E7%BD%B2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83" target="_blank">起步 - 步骤 1.2.1</a> 中没有正确地安装完整的 dtk 工具包<br><strong>解决方法</strong>： 打开终端，输入以下命令<br><figure class="highlight bash"><figcaption><span>lolimay@lolimay-PC:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libdtkbase-dev libdtkwidget-dev libdframeworkdbus-dev -y <span class="comment">#安装dtk工具包</span></span><br><span class="line">sudo apt install libdtkcore-dev libdtksettings-dev libdtksettingsview-dev libdtkutil-dev libdtkwidget-dev libdtkwm-dev -y</span><br></pre></td></tr></table></figure></p>
 <p class="button-outer"><a href="cmake/cmake.html"><span class="button">CMake入门教程 ➤</span></a></p>
         <div id="react-support-footer-root"></div>
         <div id="vcomments"></div>
-        <script src="http://file.lolimay.cn/av.js"></script>
-        <script src='http://file.lolimay.cn/valine2.js'></script>
+        <script src="https://file.lolimay.cn/av.js"></script>
+        <script src='https://file.lolimay.cn/valine2.js'></script>
         <script>
             new Valine({
                 av: AV,
@@ -65,7 +65,7 @@
                 placeholder: '欢迎留下您的评论，支持部分Markdown语法，如 *斜体*、**加粗**、`行内代码`、[超链接](链接地址)、![图片](图片地址) 等',
                 appId: 'IPBpubcWq8eH9zMVTawxUhOI-gzGzoHsz',
                 appKey: '94JwYNiBKLao9XN20MLKGzlv',
-                smiles_url: 'http://file.lolimay.cn',
+                smiles_url: 'https://file.lolimay.cn',
                 pageSize: 100,
                 avatar:'',
                 visitor: true,
@@ -84,9 +84,9 @@
     
 
     <!-- js vendors -->
-    <script src="http://file.lolimay.cn/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
-    <script src="http://file.lolimay.cn/lunr.min.js"></script>
-    <script src="http://images.lolimay.cn/socket.io.js"></script>
+    <script src="https://file.lolimay.cn/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://file.lolimay.cn/lunr.min.js"></script>
+    <script src="https://images.lolimay.cn/socket.io.js"></script>
     <script>
       const xhr = new XMLHttpRequest()
       const socket = io('http://120.79.164.229:52050')

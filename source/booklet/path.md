@@ -9,27 +9,27 @@
 
 如deepin原生应用的所有配置文件都在 `~/.config/deepin/` 目录下
 
-![](http://images.lolimay.cn/18-9-2/30945142.jpg)
+![](https://images.lolimay.cn/18-9-2/30945142.jpg)
 
 ## 启动器图标所在路径
 **/usr/share/applications/**
 
 在开发中一个会遇到很常见的需求，就是把可执行文件发送到启动器中。常见的做法是根据可执行文件的以及它的图标文件创建一个`.desktop`文件，然后将这个`.desktop`文件移动到 `/usr/share/applications/` 路径下，接着再打开启动器我们会发现启动器中已经新增了我们新增的应用。
 
-![](http://images.lolimay.cn/18-9-3/34843886.jpg)
+![](https://images.lolimay.cn/18-9-3/34843886.jpg)
 
 ## 开机自启图标所在路径
 **~/.config/autostart/**
 如果你的程序需要开机自启，请将你的程序对应的`.desktop`文件复制到 `~/.config/autostart/` 路径下，deepin 开机后会自动启动该路径下的所有程序。
 
-![](http://images.lolimay.cn/18-9-8/71043539.jpg)
+![](https://images.lolimay.cn/18-9-8/71043539.jpg)
 
 ## 桌面路径
 **~/Desktop**
 
 桌面实际上也是一个文件夹，将一个可执行文件的发送到桌面的过程实际上是创建这个可执行文件的 `.desktop` 文件并将这个 `.desktop` 文件移动至 `~/Desktop` 路径下。
 
-![](http://images.lolimay.cn/18-9-3/46486741.jpg)
+![](https://images.lolimay.cn/18-9-3/46486741.jpg)
 
 这里仅仅介绍了与在 deepin 应用开发中最常用的几个路径。当然，作为一名 deepin 开发者，仅仅了解这几个路径是远远不够的。如果你的时间比较充沛的话，建议点击参考链接中的 [Linux中各个文件夹的作用](#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5) 了解更多信息。
 

@@ -45,32 +45,32 @@
 </ul>
 <p>因此一个基本的 desktop 文件模板应该像下面这样：<br><figure class="highlight plain"><figcaption><span>demo2.desktop</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name=&lt;应用程序名&gt;</span><br><span class="line">Type=Application</span><br><span class="line">Exec=&lt;应用程序完整路径&gt;</span><br><span class="line">Icon=&lt;应用程序图标的完整路径&gt;</span><br></pre></td></tr></table></figure></p>
 <h2 id="应用示例"><a href="#应用示例" class="headerlink" title="应用示例"></a>应用示例</h2><p>小明同学在 <a href="https://www.jetbrains.com/clion/" target="_blank" rel="noopener">CLion官网</a> 下载 CLion 解压后，把整个应用目录放置在 <code>~/Apps</code> 路径下（Apps 目录是他自己创建的），小明发现 CLion 的可执行文件和它的图标就在 <code>bin</code> 目录下：</p>
-<p><img src="http://images.lolimay.cn/18-9-9/95940192.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-9-9/95940192.jpg" alt=""></p>
 <p>因此小明编写了在桌面新建了个 <code>clion.desktop</code> 文件，内容如下</p>
 <figure class="highlight plain"><figcaption><span>clion.desktop</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name=CLion</span><br><span class="line">Type=Application</span><br><span class="line">Exec=/home/xiaoming/Apps/clion-2018.2.3/bin/clion.sh</span><br><span class="line">Icon=/home/xiaoming/Apps/clion-2018.2.3/bin/clion</span><br></pre></td></tr></table></figure>
 <p>效果如下</p>
-<p><img src="http://images.lolimay.cn/18-9-9/31077250.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-9-9/31077250.jpg" alt=""></p>
 <p><strong>这里要提个很多人可能会忽视的细节。小明创建的 clion.desktop 文件名是 clion，Name的值为 CLion，虽然图标最终显示的是 Clion，但是这个 desktop 的文件全名仍然是 clion.desktop 而不是 CLion.desktop。</strong></p>
 <p>双击桌面的图标也可以正常启动 CLion，大功告成！</p>
-<p><img src="http://images.lolimay.cn/18-9-9/87550172.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-9-9/87550172.jpg" alt=""></p>
 <h2 id="添加到启动器"><a href="#添加到启动器" class="headerlink" title="添加到启动器"></a>添加到启动器</h2><p>仅仅将 desktop 文件添加到桌面其实还不够，作为一名开发者我们要考虑最坏的情况（万一哪位用户一不小心就把桌面的 desktop 文件给删除了），因此把你的应用程序发送到启动器才是较为推荐的方法（用户可以自行把启动器中的应用发送到桌面）。<br>启动器本质是一个位于 <code>/usr/share/applications/</code> 路径下的目录，目录中存放着很多 <code>.desktop</code> 文件，我们只需将我们的应用图标复制一份到 <code>/usr/share/applications/</code>即可。</p>
 <p>假设你的桌面有个 clion.desktop 文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp ~/Desktop/clion.desktop /usr/share/applications <span class="comment"># 把 clion.desktop 复制一份到启动器目录下</span></span><br></pre></td></tr></table></figure></p>
 <p>这时我们再打开启动器，会发现启动器中已经多了一个 CLion 的图标：</p>
-<p><img src="http://images.lolimay.cn/18-9-9/20506021.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-9-9/20506021.jpg" alt=""></p>
 <h2 id="Categories-参数"><a href="#Categories-参数" class="headerlink" title="Categories 参数"></a>Categories 参数</h2><p>desktop 支持的参数远远不止上诉4个，在 deepin 系统还有一个比较常用的参数就是 Categories。</p>
 <ul>
 <li>Categories: 用于指定应用的分类（如果缺省则分类到 <code>其他应用</code> ）</li>
 </ul>
 <p>我们打开启动器并切换到分类视图，可以看到刚刚添加到 CLion 被分类到<code>其他应用</code>了，这显然不是我们想看到的。</p>
-<p><img src="http://images.lolimay.cn/18-9-9/40615066.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-9-9/40615066.jpg" alt=""></p>
 <p>deepin 启动器将所有应用分为10类，分别是网络应用、社交沟通、音乐欣赏、视频播放、图形图像、办公学习、阅读翻译、编程开发、系统管理和其他应用。</p>
-<p><img src="http://images.lolimay.cn/18-9-9/73357158.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-9-9/73357158.jpg" alt=""></p>
 <p>下面我们修改 <code>clion.desktop</code> 文件，使 deepin 启动器能够正确地将 CLion 分类为 <code>编程开发</code>。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /usr/share/applications/clion.desktop</span><br></pre></td></tr></table></figure>
 <p>在最后一行添加 <code>Categories=Development</code>并保存</p>
-<p><img src="http://images.lolimay.cn/18-9-9/97514158.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-9-9/97514158.jpg" alt=""></p>
 <p>再打开启动器，可以发现 CLion 已经被正确地分类为<code>编程开发</code>分类下</p>
-<p><img src="http://images.lolimay.cn/18-9-9/4807365.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-9-9/4807365.jpg" alt=""></p>
 <h2 id="附表：Categories-对照表"><a href="#附表：Categories-对照表" class="headerlink" title="附表：Categories 对照表"></a>附表：Categories 对照表</h2><table>
 <thead>
 <tr>
@@ -124,8 +124,8 @@
 
         <div id="react-support-footer-root"></div>
         <div id="vcomments"></div>
-        <script src="http://file.lolimay.cn/av.js"></script>
-        <script src='http://file.lolimay.cn/valine2.js'></script>
+        <script src="https://file.lolimay.cn/av.js"></script>
+        <script src='https://file.lolimay.cn/valine2.js'></script>
         <script>
             new Valine({
                 av: AV,
@@ -133,7 +133,7 @@
                 placeholder: '欢迎留下您的评论，支持部分Markdown语法，如 *斜体*、**加粗**、`行内代码`、[超链接](链接地址)、![图片](图片地址) 等',
                 appId: 'IPBpubcWq8eH9zMVTawxUhOI-gzGzoHsz',
                 appKey: '94JwYNiBKLao9XN20MLKGzlv',
-                smiles_url: 'http://file.lolimay.cn',
+                smiles_url: 'https://file.lolimay.cn',
                 pageSize: 100,
                 avatar:'',
                 visitor: true,
@@ -152,9 +152,9 @@
     
 
     <!-- js vendors -->
-    <script src="http://file.lolimay.cn/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
-    <script src="http://file.lolimay.cn/lunr.min.js"></script>
-    <script src="http://images.lolimay.cn/socket.io.js"></script>
+    <script src="https://file.lolimay.cn/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://file.lolimay.cn/lunr.min.js"></script>
+    <script src="https://images.lolimay.cn/socket.io.js"></script>
     <script>
       const xhr = new XMLHttpRequest()
       const socket = io('http://120.79.164.229:52050')

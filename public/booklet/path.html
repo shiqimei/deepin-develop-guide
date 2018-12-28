@@ -36,15 +36,15 @@
 <h2 id="应用数据路径"><a href="#应用数据路径" class="headerlink" title="应用数据路径"></a>应用数据路径</h2><p><strong>~/.config/</strong></p>
 <p>在 deepin 系统中，应用的数据主要存放在 <code>~/.config/</code> 路径下，开发者可以将应用的配置文件、缓存文件以及其它数据文件存放在该路径下。常见的路径格式为 <code>~/.config/&lt;开发者名称或公司名称&gt;/&lt;应用名称&gt;/</code> 或 <code>~/.config/&lt;应用名称&gt;/</code>。虽然我们也可以将应用的数据放在磁盘的其它路径下，但不建议这么做（这无疑会让用户产生困扰）。</p>
 <p>如deepin原生应用的所有配置文件都在 <code>~/.config/deepin/</code> 目录下</p>
-<p><img src="http://images.lolimay.cn/18-9-2/30945142.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-9-2/30945142.jpg" alt=""></p>
 <h2 id="启动器图标所在路径"><a href="#启动器图标所在路径" class="headerlink" title="启动器图标所在路径"></a>启动器图标所在路径</h2><p><strong>/usr/share/applications/</strong></p>
 <p>在开发中一个会遇到很常见的需求，就是把可执行文件发送到启动器中。常见的做法是根据可执行文件的以及它的图标文件创建一个<code>.desktop</code>文件，然后将这个<code>.desktop</code>文件移动到 <code>/usr/share/applications/</code> 路径下，接着再打开启动器我们会发现启动器中已经新增了我们新增的应用。</p>
-<p><img src="http://images.lolimay.cn/18-9-3/34843886.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-9-3/34843886.jpg" alt=""></p>
 <h2 id="开机自启图标所在路径"><a href="#开机自启图标所在路径" class="headerlink" title="开机自启图标所在路径"></a>开机自启图标所在路径</h2><p><strong>~/.config/autostart/</strong><br>如果你的程序需要开机自启，请将你的程序对应的<code>.desktop</code>文件复制到 <code>~/.config/autostart/</code> 路径下，deepin 开机后会自动启动该路径下的所有程序。</p>
-<p><img src="http://images.lolimay.cn/18-9-8/71043539.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-9-8/71043539.jpg" alt=""></p>
 <h2 id="桌面路径"><a href="#桌面路径" class="headerlink" title="桌面路径"></a>桌面路径</h2><p><strong>~/Desktop</strong></p>
 <p>桌面实际上也是一个文件夹，将一个可执行文件的发送到桌面的过程实际上是创建这个可执行文件的 <code>.desktop</code> 文件并将这个 <code>.desktop</code> 文件移动至 <code>~/Desktop</code> 路径下。</p>
-<p><img src="http://images.lolimay.cn/18-9-3/46486741.jpg" alt=""></p>
+<p><img src="https://images.lolimay.cn/18-9-3/46486741.jpg" alt=""></p>
 <p>这里仅仅介绍了与在 deepin 应用开发中最常用的几个路径。当然，作为一名 deepin 开发者，仅仅了解这几个路径是远远不够的。如果你的时间比较充沛的话，建议点击参考链接中的 <a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">Linux中各个文件夹的作用</a> 了解更多信息。</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
 <li><a href="https://www.cnblogs.com/yoke/p/7217019.html" target="_blank" rel="noopener">Linux中各个文件夹的作用</a></li>
@@ -52,8 +52,8 @@
 
         <div id="react-support-footer-root"></div>
         <div id="vcomments"></div>
-        <script src="http://file.lolimay.cn/av.js"></script>
-        <script src='http://file.lolimay.cn/valine2.js'></script>
+        <script src="https://file.lolimay.cn/av.js"></script>
+        <script src='https://file.lolimay.cn/valine2.js'></script>
         <script>
             new Valine({
                 av: AV,
@@ -61,7 +61,7 @@
                 placeholder: '欢迎留下您的评论，支持部分Markdown语法，如 *斜体*、**加粗**、`行内代码`、[超链接](链接地址)、![图片](图片地址) 等',
                 appId: 'IPBpubcWq8eH9zMVTawxUhOI-gzGzoHsz',
                 appKey: '94JwYNiBKLao9XN20MLKGzlv',
-                smiles_url: 'http://file.lolimay.cn',
+                smiles_url: 'https://file.lolimay.cn',
                 pageSize: 100,
                 avatar:'',
                 visitor: true,
@@ -80,9 +80,9 @@
     
 
     <!-- js vendors -->
-    <script src="http://file.lolimay.cn/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
-    <script src="http://file.lolimay.cn/lunr.min.js"></script>
-    <script src="http://images.lolimay.cn/socket.io.js"></script>
+    <script src="https://file.lolimay.cn/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://file.lolimay.cn/lunr.min.js"></script>
+    <script src="https://images.lolimay.cn/socket.io.js"></script>
     <script>
       const xhr = new XMLHttpRequest()
       const socket = io('http://120.79.164.229:52050')

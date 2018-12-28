@@ -45,11 +45,11 @@ Tool settings:
 ````
 这里需要注意的是，由于每个人的 qtcreator 的路径不一定一样，终端输入 `which qtcreator` 回车查看 qtcreator 的路径，将其填入 Program 后面的文本框中。
 
-<img src="http://images.lolimay.cn/18-8-17/41277023.jpg">
+<img src="https://images.lolimay.cn/18-8-17/41277023.jpg">
 
 OK->Apply 保存后打开菜单，**File->Settings->Appearance & Behavior->Project View Popup Menu**，将 External Tools 拖到最上面（方便以后编辑 **.ui** 文件，如下图所示：
 
-![](http://images.lolimay.cn/18-8-17/38622151.jpg)
+![](https://images.lolimay.cn/18-8-17/38622151.jpg)
 
 ## 1.4 用 CMake 构建 Qt 项目
 在学习本节内容前，如果你不清楚什么是 CMake，请先看我们为你提供的 [CMake入门教程](cmake/cmake.html)。
