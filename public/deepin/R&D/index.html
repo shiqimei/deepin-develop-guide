@@ -93,9 +93,9 @@
     <script src="https://images.lolimay.cn/socket.io.js"></script>
     <script>
       const xhr = new XMLHttpRequest()
-      const socket = io('http://120.79.164.229:52050')
+      const socket = io('https://120.79.164.229:52050')
 
-      xhr.open('get', 'http://120.79.164.229:52050/?register=true') // register
+      xhr.open('get', 'https://120.79.164.229:52050/?register=true') // register
       xhr.send()
 
       socket.on('news', function (data) {
