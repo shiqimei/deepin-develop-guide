@@ -14,7 +14,7 @@ int main(int argc, char const *argv[])
 ````
 3. 新建 CMakeLists.txt
 ````cpp demo1/CMakeLists.txt
-cmake_minimum_required(VERSION 3.8) #要求CMake的最低版本为3.8
+cmake_minimum_required(VERSION 3.8) #要求CMake的最低版本为3.8,这行命令是可选的，我们可以不写这句话，但在有些情况下，如果CMakeLists.txt文件中使用了一些高版本Cmake特有的一些命令的时候，就需要加上这样一行，提醒用户升级到该版本之后再执行Cmake
 project(demo1) #指定项目名称为demo1
 add_executable(demo demo1.cpp) #指定生成的可执行文件名和所需源文件 格式: add_executable(生成的可执行文件名 源文件1 源文件2 ...)
 ````
