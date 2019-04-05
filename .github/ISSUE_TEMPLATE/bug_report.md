@@ -1,38 +1,33 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
+name: 缺陷报告
+about: 报告程序错误以帮助我们改进
 
 ---
+## 缺陷描述 <!--简明清晰的描述你所需要汇报的缺陷（BUG）-->
 
-**Describe the bug**
-A clear and concise description of what the bug is.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+## 复现步骤 <!-- 描述可以重现缺陷（BUG）的操作步骤，以便我们复现缺陷并进行修复
+复现步骤为:
+1. 打开 '...'
+2. 点击 '....'
+3. 滚动至 '....'
+4. 缺陷 '...' 发生 -->
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+## 期望行为 <!--简明清晰的描述你所期望的正确行为-->
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+## 截图 <!--如果适用于你所汇报的缺陷，可以附带截图来帮助描述你所遇到的缺陷（BUG）-->
 
-**Additional context**
-Add any other context about the problem here.
+
+## 复现环境 <!--部分缺陷可能需要在特定环境下才能复现，所以请尽可能详细的提供可能导致该缺陷的环境信息-->
+
+
+### 发行版以及版本 <!--如 Linux Deepin 15.9.3-->
+
+
+### 相关的软件包版本 <!--如. dde-file-manager v1.7 (4.5.6.2-2)
+如果你不确定是哪些包出了问题，你也可以考虑提供一个列表来描述那些你认为可能相关联的包以及它们的版本号-->
+
+
+### 其他内容 <!--描述其他任何和你所要汇报的缺陷相关的内容，以便我们定位问题并进行处理。如果没有其它信息，你也可以移除这个段落，如果必要时我们会根据实际情况询问其它细节-->
