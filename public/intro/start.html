@@ -32,28 +32,27 @@
     <div class="dc-card">
       <div id="react-search-results-root"></div>
       <div id="page-content" class="doc-formatting">
-        <h1 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h1><h2 id="1-1-前言"><a href="#1-1-前言" class="headerlink" title="1.1 前言"></a>1.1 前言</h2><p>《Deepin 开发指南》旨在帮助 Deppin 社区的开发者更快地投入进软件的开发过程中，按计划，该系列教程将会包括以下内容: 开发环境的搭建与配置、深度原生应用源码分析、Deb 与 Flatpak 打包教程以及Deepin Tool Kit API手册等。</p>
-<p>本教程假设你已经有了一定的 C++ 基础，如果对 C++ 一无所知，建议先从学习 C++ 开始，<a href="https://www.amazon.com/C-Primer-Plus-Sixth-Chinese/dp/7115279462/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1534737175&amp;sr=1-1&amp;keywords=C%2B%2B+Primer+Plus+%286th+Edition%29++Chinese" target="_blank" rel="noopener">《C++ Primer Plus 第6版 中文版》</a>（请自行在淘宝、京东上购买）是你最好的选择。</p>
-<h2 id="1-2-部署开发环境"><a href="#1-2-部署开发环境" class="headerlink" title="1.2 部署开发环境"></a>1.2 部署开发环境</h2><h3 id="1-2-1-安装-Qt、g-、dtk-工具包、cmake"><a href="#1-2-1-安装-Qt、g-、dtk-工具包、cmake" class="headerlink" title="1.2.1 安装 Qt、g++、dtk 工具包、cmake"></a>1.2.1 安装 Qt、g++、dtk 工具包、cmake</h3><p>打开终端输入以下命令<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update <span class="comment">#更新软件源</span></span><br><span class="line">sudo apt install qtcreator-dde qttools5-dev g++ -y <span class="comment">#安装Qt和g++</span></span><br><span class="line">sudo apt install libdtkcore-dev libdtkwidget-dev -y <span class="comment">#安装dtk工具包</span></span><br><span class="line">sudo apt install libdtkcore-bin libdtksettings-dev libdtksettingsview-dev -y</span><br><span class="line">sudo apt install cmake -y <span class="comment">#安装cmake</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="1-2-2-安装-CLion"><a href="#1-2-2-安装-CLion" class="headerlink" title="1.2.2 安装 CLion"></a>1.2.2 安装 CLion</h3><p>官方源中的 CLion 还是 2017.2 版本的，已经比较旧了，官网目前最新的是 2018.2 版本</p>
-<h4 id="方式一-使用-apt-自动安装-CLion"><a href="#方式一-使用-apt-自动安装-CLion" class="headerlink" title="方式一 使用 apt 自动安装 CLion"></a>方式一 使用 apt 自动安装 CLion</h4><p>打开终端输入以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install clion -y #安装 CLion</span><br></pre></td></tr></table></figure></p>
-<h4 id="方式二-官网下载压缩包手动安装-CLion"><a href="#方式二-官网下载压缩包手动安装-CLion" class="headerlink" title="方式二 官网下载压缩包手动安装 CLion"></a>方式二 官网下载压缩包手动安装 CLion</h4><ol>
-<li>打开 <a href="https://www.jetbrains.com/clion/" target="_blank" rel="noopener">CLion官网</a></li>
-<li>点击 <strong>GET FREE 30 DAY TRIAL</strong> 按钮，Chrome 会自动下载 CLion 的压缩包</li>
-<li>在文件夹中打开该文件，解压得到 <strong>clion-2018.2.1</strong> 文件夹</li>
-<li>执行 <strong>clion-2018.2.1/bin</strong> 目录下的 <strong>clion.sh</strong> 脚本，安装程序会自动启动</li>
-<li>此后跟着CLion安装引导程序的提示一路往下即可安装成功</li>
-<li>（可选） CLion不支持多语言，但Github上有大牛维护的 CLion 汉化包，<a href="https://github.com/pingfangx/TranslatorX" target="_blank" rel="noopener">戳这了解更多</a>。<blockquote>
-<p>注意：CLion 为商业软件，提供 30 天试用，授权许可是 89 美元每年，以后逐年递减，<strong>学生或开源项目认证通过后可免费使用</strong>，详情请关注官网。<s>如果实在资金不允许，百度上也有对应的解决方案，这里不便叙述。</s>建议有条件的开发者能够购买正版。</p>
+        <h1 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h1><h2 id="1-1-前言"><a href="#1-1-前言" class="headerlink" title="1.1 前言"></a>1.1 前言</h2><p>《Deepin 开发指南》旨在帮助 Deppin 社区的开发者更快地投入进软件的开发过程中。看完本教程你将掌握以下内容:</p>
+<ol>
+<li>基于 VS Code + CMake 的 C++/Qt 开发环境的搭建与配置</li>
+<li>使用 VS Code 调试 C++/Qt 程序</li>
+<li>将二进制源代码打包成 deb</li>
+</ol>
+<blockquote>
+<p>本教程假设你已经有了一定的 C++ 基础。如果你缺少 C++ 基础，啃一本 C++ 入门书籍(如《C++ Primer Plus》)是一个不错的选择。</p>
 </blockquote>
+<h2 id="1-2-部署开发环境"><a href="#1-2-部署开发环境" class="headerlink" title="1.2 部署开发环境"></a>1.2 部署开发环境</h2><h3 id="1-2-1-安装-Qt、g-、clang、dtk-和-CMake"><a href="#1-2-1-安装-Qt、g-、clang、dtk-和-CMake" class="headerlink" title="1.2.1 安装 Qt、g++、clang、dtk 和 CMake"></a>1.2.1 安装 Qt、g++、clang、dtk 和 CMake</h3><p>在正式开始之前，我们需要安装一些必要的开发工具（如编译器、构建工具等），请打开终端输入下面的命令安装它们:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install qtcreator-dde qttools5-dev -y</span><br><span class="line">sudo apt install g++ clang -y</span><br><span class="line">sudo apt install libdtkcore-dev libdtkwidget-dev -y</span><br><span class="line">sudo apt install libdtkcore-bin libdtksettings-dev libdtksettingsview-dev -y</span><br><span class="line">sudo apt install cmake -y</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-2-2-安装-VS-Code"><a href="#1-2-2-安装-VS-Code" class="headerlink" title="1.2.2 安装 VS Code"></a>1.2.2 安装 VS Code</h3><p>本系列教程使用 VS Code 作为代码编辑器，你可以通过下面几种方式获取 VS Code:</p>
+<ol>
+<li>直接从官网下载安装<br>打开 <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">https://code.visualstudio.com</a> 下载最新版本的 deb 包后双击调用软件包管理器完成安装。</li>
+<li>使用 apt 安装<br>打开终端输入以下命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install vscode -y <span class="comment"># 不推荐(源中版本过旧)</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="1-3-配置CLion"><a href="#1-3-配置CLion" class="headerlink" title="1.3 配置CLion"></a>1.3 配置CLion</h2><p>CLion 是一款优秀的C/C++ IDE，很遗憾的是，它并不支持直接编辑 <strong>.ui</strong> 文件（Qt界面文件），这里我们需要添加 Qt Designer 作为 CLion 的 External Tools，以便于直接在 CLion 中直接调用 Qt Creator 来设计界面。</p>
-<p>在CLion中，打开菜单 <strong>File-&gt;Settings-&gt;Tools-&gt;External Tools</strong> , 点击 <strong>+</strong> 新建工具，填入如下内容:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Name: Qt Designer</span><br><span class="line">Tool settings:</span><br><span class="line">     Program: /usr/bin/qtcreator</span><br><span class="line">     Parameters: <span class="variable">$FilePath</span>$</span><br><span class="line">     Working directory: <span class="variable">$ProjectFileDir</span>$</span><br></pre></td></tr></table></figure></p>
-<p>这里需要注意的是，由于每个人的 qtcreator 的路径不一定一样，终端输入 <code>which qtcreator</code> 回车查看 qtcreator 的路径，将其填入 Program 后面的文本框中。</p>
-<p><img src="https://images.lolimay.cn/18-8-17/41277023.jpg"></p>
-<p>OK-&gt;Apply 保存后打开菜单，<strong>File-&gt;Settings-&gt;Appearance &amp; Behavior-&gt;Project View Popup Menu</strong>，将 External Tools 拖到最上面（方便以后编辑 <strong>.ui</strong> 文件，如下图所示：</p>
-<p><img src="https://images.lolimay.cn/18-8-17/38622151.jpg" alt=""></p>
+<h2 id="1-3-配置-VS-Code"><a href="#1-3-配置-VS-Code" class="headerlink" title="1.3 配置 VS Code"></a>1.3 配置 VS Code</h2><p>VS Code 是一款强大的可拓展的代码编辑器，借助它丰富的插件，我们可以配置个性化的 C++/Qt 程序的开发环境，这里是一些 <code>必须/建议</code> 安装的插件，请在正式开发之前安装好它们:</p>
+<ul>
+<li><img src="https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cpptools/0.21.0/1548280626223/Microsoft.VisualStudio.Services.Icons.Default" height="25"> C/C++ <span style="color:white;background:#E1424D;margin-left:10px;padding: 2px 5px;border-radius:5px;">必须安装</span></li>
+<li></li>
+</ul>
 <h2 id="1-4-用-CMake-构建-Qt-项目"><a href="#1-4-用-CMake-构建-Qt-项目" class="headerlink" title="1.4 用 CMake 构建 Qt 项目"></a>1.4 用 CMake 构建 Qt 项目</h2><p>在学习本节内容前，如果你不清楚什么是 CMake，请先看我们为你提供的 <a href="cmake/cmake.html">CMake入门教程</a>。</p>
 <p>CLion 使用 CMake 作为构建工具，使用 CLion 创建 Qt 项目一个较好的项目模板<sup><a href="#link1">1</a></sup>如下，建议新手创建 Qt 项目均按此模板创建。</p>
 <h3 id="项目目录结构"><a href="#项目目录结构" class="headerlink" title="项目目录结构"></a>项目目录结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ProjectName               <span class="comment">#项目目录</span></span><br><span class="line">├── CMakeLists.txt      <span class="comment">#项目根目录CMakeLists.txt配置文件</span></span><br><span class="line">└── src                 <span class="comment">#源码目录</span></span><br><span class="line">    ├── CMakeLists.txt  <span class="comment">#源码目录CMakeLists.txt配置文件</span></span><br><span class="line">    └── main.cpp        <span class="comment">#程序入口</span></span><br></pre></td></tr></table></figure>
@@ -68,8 +67,8 @@
 
         <div id="react-support-footer-root"></div>
         <div id="vcomments"></div>
-        <script src="https://file.lolimay.cn/av.js"></script>
-        <script src='https://file.lolimay.cn/valine2_20181229.js'></script>
+        <script src="https://files.lolimay.cn/av.js"></script>
+        <script src='https://files.lolimay.cn/valine2_20181229.js'></script>
         <script>
             new Valine({
                 av: AV,
@@ -77,7 +76,7 @@
                 placeholder: '欢迎留下您的评论，支持部分Markdown语法，如 *斜体*、**加粗**、`行内代码`、[超链接](链接地址)、![图片](图片地址) 等',
                 appId: 'IPBpubcWq8eH9zMVTawxUhOI-gzGzoHsz',
                 appKey: '94JwYNiBKLao9XN20MLKGzlv',
-                smiles_url: 'https://files.lolimay.cn',
+                smiles_url: 'https://filess.lolimay.cn',
                 pageSize: 100,
                 avatar:'',
                 visitor: true,
@@ -96,8 +95,8 @@
     
 
     <!-- js vendors -->
-    <script src="https://file.lolimay.cn/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://file.lolimay.cn/lunr.min.js"></script>
+    <script src="https://files.lolimay.cn/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://files.lolimay.cn/lunr.min.js"></script>
     <script src="https://images.lolimay.cn/socket.io.js"></script>
     <script>
       const xhr = new XMLHttpRequest()

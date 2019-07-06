@@ -1,55 +1,42 @@
 # 起步
 
 ## 1.1 前言
-《Deepin 开发指南》旨在帮助 Deppin 社区的开发者更快地投入进软件的开发过程中，按计划，该系列教程将会包括以下内容: 开发环境的搭建与配置、深度原生应用源码分析、Deb 与 Flatpak 打包教程以及Deepin Tool Kit API手册等。
+《Deepin 开发指南》旨在帮助 Deppin 社区的开发者更快地投入进软件的开发过程中。看完本教程你将掌握以下内容:
+1. 基于 VS Code + CMake 的 C++/Qt 开发环境的搭建与配置
+2. 使用 VS Code 调试 C++/Qt 程序
+3. 将二进制源代码打包成 deb
 
-本教程假设你已经有了一定的 C++ 基础，如果对 C++ 一无所知，建议先从学习 C++ 开始，[《C++ Primer Plus 第6版 中文版》](https://www.amazon.com/C-Primer-Plus-Sixth-Chinese/dp/7115279462/ref=sr_1_1?s=books&ie=UTF8&qid=1534737175&sr=1-1&keywords=C%2B%2B+Primer+Plus+%286th+Edition%29++Chinese)（请自行在淘宝、京东上购买）是你最好的选择。
+> 本教程假设你已经有了一定的 C++ 基础。如果你缺少 C++ 基础，啃一本 C++ 入门书籍(如《C++ Primer Plus》)是一个不错的选择。
 
 ## 1.2 部署开发环境
-### 1.2.1 安装 Qt、g++、dtk 工具包、cmake
-打开终端输入以下命令
+### 1.2.1 安装 Qt、g++、clang、dtk 和 CMake
+在正式开始之前，我们需要安装一些必要的开发工具（如编译器、构建工具等），请打开终端输入下面的命令安装它们:
 ```sh
-sudo apt update #更新软件源
-sudo apt install qtcreator-dde qttools5-dev g++ -y #安装Qt和g++
-sudo apt install libdtkcore-dev libdtkwidget-dev -y #安装dtk工具包
+sudo apt update
+sudo apt install qtcreator-dde qttools5-dev -y
+sudo apt install g++ clang -y
+sudo apt install libdtkcore-dev libdtkwidget-dev -y
 sudo apt install libdtkcore-bin libdtksettings-dev libdtksettingsview-dev -y
-sudo apt install cmake -y #安装cmake
+sudo apt install cmake -y
 ```
-### 1.2.2 安装 CLion
-官方源中的 CLion 还是 2017.2 版本的，已经比较旧了，官网目前最新的是 2018.2 版本
-#### 方式一 使用 apt 自动安装 CLion
-打开终端输入以下命令
-````
-sudo apt install clion -y #安装 CLion
-````
-#### 方式二 官网下载压缩包手动安装 CLion
-1. 打开 [CLion官网](https://www.jetbrains.com/clion/)
-2. 点击 **GET FREE 30 DAY TRIAL** 按钮，Chrome 会自动下载 CLion 的压缩包
-3. 在文件夹中打开该文件，解压得到 **clion-2018.2.1** 文件夹
-4. 执行 **clion-2018.2.1/bin** 目录下的 **clion.sh** 脚本，安装程序会自动启动
-5. 此后跟着CLion安装引导程序的提示一路往下即可安装成功
-6. （可选） CLion不支持多语言，但Github上有大牛维护的 CLion 汉化包，[戳这了解更多](https://github.com/pingfangx/TranslatorX)。
-> 注意：CLion 为商业软件，提供 30 天试用，授权许可是 89 美元每年，以后逐年递减，**学生或开源项目认证通过后可免费使用**，详情请关注官网。<s>如果实在资金不允许，百度上也有对应的解决方案，这里不便叙述。</s>建议有条件的开发者能够购买正版。
+### 1.2.2 安装 VS Code
+本系列教程使用 VS Code 作为代码编辑器，你可以通过下面几种方式获取 VS Code:
+
+1. 直接从官网下载安装
+  打开 [https://code.visualstudio.com](https://code.visualstudio.com/) 下载最新版本的 deb 包后双击调用软件包管理器完成安装。
+2. 使用 apt 安装
+  打开终端输入以下命令
+  ````bash
+  sudo apt install vscode -y # 不推荐(源中版本过旧)
+  ````
 
 
-## 1.3 配置CLion
-CLion 是一款优秀的C/C++ IDE，很遗憾的是，它并不支持直接编辑 **.ui** 文件（Qt界面文件），这里我们需要添加 Qt Designer 作为 CLion 的 External Tools，以便于直接在 CLion 中直接调用 Qt Creator 来设计界面。
+## 1.3 配置 VS Code
+VS Code 是一款强大的可拓展的代码编辑器，借助它丰富的插件，我们可以配置个性化的 C++/Qt 程序的开发环境，这里是一些 `必须/建议` 安装的插件，请在正式开发之前安装好它们:
 
-在CLion中，打开菜单 **File->Settings->Tools->External Tools** , 点击 **+** 新建工具，填入如下内容:
-````bash
-Name: Qt Designer
-Tool settings:
-     Program: /usr/bin/qtcreator
-     Parameters: $FilePath$
-     Working directory: $ProjectFileDir$ 
-````
-这里需要注意的是，由于每个人的 qtcreator 的路径不一定一样，终端输入 `which qtcreator` 回车查看 qtcreator 的路径，将其填入 Program 后面的文本框中。
+- <img src="https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cpptools/0.21.0/1548280626223/Microsoft.VisualStudio.Services.Icons.Default" height="25"> C/C++ <span style="color:white;background:#E1424D;margin-left:10px;padding: 2px 5px;border-radius:5px;">必须安装</span>
+- 
 
-<img src="https://images.lolimay.cn/18-8-17/41277023.jpg">
-
-OK->Apply 保存后打开菜单，**File->Settings->Appearance & Behavior->Project View Popup Menu**，将 External Tools 拖到最上面（方便以后编辑 **.ui** 文件，如下图所示：
-
-![](https://images.lolimay.cn/18-8-17/38622151.jpg)
 
 ## 1.4 用 CMake 构建 Qt 项目
 在学习本节内容前，如果你不清楚什么是 CMake，请先看我们为你提供的 [CMake入门教程](cmake/cmake.html)。
